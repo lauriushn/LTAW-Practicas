@@ -8,3 +8,6 @@ Este es mi segundo cambio
 Probando...
 
 * Este es el tercer cambio para afianzar
+
+--------------------------------------------
+![](Ejercicio2-img1.gif)
