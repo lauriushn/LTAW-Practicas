@@ -1,3 +1,5 @@
+# Ejercicio 1
+
 ```html
 <!DOCTYPE urjc_ML SYSTEM "urjc_ml.dtd">
 <urjc_ml>
@@ -15,3 +17,19 @@
   </campus>
 </urjc_ml>
 ```
+----------
+
+* **a). Explica para qué sirve la primera línea del documento y por qué es necesaria.**
+
+
+* **b). Si se omitiese esta línea, ¿Qué piensas que ocurriría?**
+
+* **c). Sin conocer el contenido del fichero urjc_ml.dtd, ¿el documento es sintácticamente correcto?**
+
+* **d). ¿Qué hace la tercera línea?**
+
+* **e). ¿Cuantas etiquetas de apertura hay? ¿Cuantas de cierre?**
+
+* **f). Dibuja el diagrama de contenedores de este documento.**
+
+* **g). Dibuja la estructura en árbol que define este documento.**
