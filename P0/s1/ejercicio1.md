@@ -19,17 +19,18 @@
 ```
 ----------
 
-* **a). Explica para qué sirve la primera línea del documento y por qué es necesaria.**
+**a). Explica para qué sirve la primera línea del documento y por qué es necesaria.**
 
+La primera línea nos indica el tipo de documento. Además la definición del documento se encuentra en el fichero "urjc_ml.dtd" que sirve para saber que etiquetas son válidas y además también nos permitirá corregir posibles errores.
 
-* **b). Si se omitiese esta línea, ¿Qué piensas que ocurriría?**
+**b). Si se omitiese esta línea, ¿Qué piensas que ocurriría?**
 
-* **c). Sin conocer el contenido del fichero urjc_ml.dtd, ¿el documento es sintácticamente correcto?**
+**c). Sin conocer el contenido del fichero urjc_ml.dtd, ¿el documento es sintácticamente correcto?**
 
-* **d). ¿Qué hace la tercera línea?**
+**d). ¿Qué hace la tercera línea?**
 
-* **e). ¿Cuantas etiquetas de apertura hay? ¿Cuantas de cierre?**
+**e). ¿Cuantas etiquetas de apertura hay? ¿Cuantas de cierre?**
 
-* **f). Dibuja el diagrama de contenedores de este documento.**
+**f). Dibuja el diagrama de contenedores de este documento.**
 
-* **g). Dibuja la estructura en árbol que define este documento.**
+**g). Dibuja la estructura en árbol que define este documento.**
