@@ -25,7 +25,12 @@ La primera línea nos indica el tipo de documento. Además la definición del do
 
 **b). Si se omitiese esta línea, ¿Qué piensas que ocurriría?**
 
+Se produciría un error al no poder analizar correctamente el documento.
+
 **c). Sin conocer el contenido del fichero urjc_ml.dtd, ¿el documento es sintácticamente correcto?**
+
+Sintácticamente es correcto, pues podemos ver que las etiquetas que se abren son cerradas, ahora bien, el nombre de las etiquetas utilizadas pueden ser o no correctas. No es posible saberlo sin conocer el contenido del fichero "urjc_ml.dtd".
+
 
 **d). ¿Qué hace la tercera línea?**
 
