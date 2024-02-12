@@ -26,8 +26,12 @@ Este árbol representa la estructura del tipo de documento universidad, que est�
 
 **b) ¿Cuántos elementos contenedores hay? Indica sus nombres**
 
+Tenemos 11 elementos contenedores que son Universidad, Escuela, Nombre, Grado, Nombre, Asignatura, Asignatura y Asignatura y por último, Grado, Nombre y Asignatura.
 
 **c) ¿Cuantos elementos terminales hay? Indica sus valores**
 
+Los elementos terminales, fijandonos en la estructura de la imagen, de árbol, serían las hojas, es decir, elementos que no contengan a otros, por lo que en este caso tendríamos 7 elementos terminales, que serían Ingeniería en Sistemas Audiovisuales y Multimedia, LTAW, CSAAI, ASA II, Ingeniería en Robótica Software y AC
 
 **d) ¿Cuantos elementos hay en el nivel 3?. Escribe sus nombres**
+
+En el Nivel 3 tenemos 7 elementos, ETSI Telecomunicación, Nombre, Asignatura, Asignatura, Asignatura, Nombre y Asignatura. 
