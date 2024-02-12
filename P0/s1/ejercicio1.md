@@ -34,8 +34,17 @@ Sintácticamente es correcto, pues podemos ver que las etiquetas que se abren so
 
 **d). ¿Qué hace la tercera línea?**
 
+La tercera línea no hace nada, es simplemente un comentario, solo aporta información para el propietario del archivo o para otros usuarios.
+
 **e). ¿Cuantas etiquetas de apertura hay? ¿Cuantas de cierre?**
+
+Hay 9 etiquetas de apertura. Por tanto habrá también 9 etiquetas de cierre.
 
 **f). Dibuja el diagrama de contenedores de este documento.**
 
+![](ej1-apartado-f.png)
+
+
 **g). Dibuja la estructura en árbol que define este documento.**
+
+![](ej1-apartado-g.png)
