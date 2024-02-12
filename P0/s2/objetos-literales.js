@@ -37,3 +37,11 @@ const { valor, nombre } = objeto1;
 console.log("");
 console.log("Nombre: " + nombre);
 console.log("Valor: " + valor);
+
+//-- Forma abreviada del anterior código
+const valor1 = objeto1.valor;
+const nombre1 = objeto1.nombre;
+
+console.log("")
+console.log("Valor: " + valor1)
+console.log("Nombre: " + nombre1)
