@@ -1,7 +1,7 @@
 const http = require('http');
 
 //-- Definir el puerto a utilizar
-const PUERTO = 8086;
+const PUERTO = 8087;
 
 //-- Crear el servidor
 const server = http.createServer((req, res) => {
@@ -11,7 +11,7 @@ const server = http.createServer((req, res) => {
 
   //-- Cabecera que indica el tipo de datos del
   //-- cuerpo de la respuesta: Texto plano
-  res.setHeader('Content-Type', 'text/plain');
+  res.setHeader('Content-Type', 'text/html');
 
   //-- Mensaje del cuerpo
   res.write(`
