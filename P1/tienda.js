@@ -6,8 +6,9 @@ const http = require('http');
 //-- Crear el servidor
 const server = http.createServer();
 
-//-- Definimos el puerto en el que queremos que escuche, 9090
+//-- Definimos las constantes
 const port = 9090;
+const tienda = "index.html";
 
 //-- Función de retrollamada de petición recibida
 //-- Cada vez que un cliente realiza una petición
@@ -19,7 +20,15 @@ function atender(req, res) {
     //-- Indicamos que se ha recibido una petición
     console.log("Petición recibida!");
 
-    //-- pero no enviamos respusta (todavía)
+    //-- Cabecera que indica el tipo de datos del
+    //-- cuerpo de la respuesta: Texto plano
+    res.setHeader('Content-Type', 'text/plain');
+
+    //-- Mensaje del cuerpo
+    res.write("Hola!!\n");
+
+    //-- Terminar la respuesta y enviarla
+    res.end();
 }
 
 //-- Activar la función de retrollamada del servidor
