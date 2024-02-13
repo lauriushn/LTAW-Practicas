@@ -14,7 +14,16 @@ const server = http.createServer((req, res) => {
   res.setHeader('Content-Type', 'text/plain');
 
   //-- Mensaje del cuerpo
-  res.write("Soy el Happy server!!\n");
+  res.write(`
+    <!DOCTYPE html>
+  <html>
+      <title>Prueba</title>
+      <body>
+          <p>Probandoooo.....</p>
+          <b>Negrita!!</b>
+      </body>
+  </html>
+  `);
 
   //-- Terminar la respuesta y enviarla
   res.end();
