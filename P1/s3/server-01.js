@@ -1,13 +1,15 @@
-// PRÁCTICA 1. TIENDA.
-
-//-- Importamos los módulos necesarios
+//-- Importamos los módulos 
 const http = require('http');
 
-//-- Crear el servidor
+
+
+//-- Crearmos el servidor
 const server = http.createServer();
 
-//-- Definimos el puerto en el que queremos que escuche, 9090
-const port = 9090;
+
+//-- Definimos el puerto
+const port = 8082;
+
 
 //-- Función de retrollamada de petición recibida
 //-- Cada vez que un cliente realiza una petición
@@ -22,9 +24,13 @@ function atender(req, res) {
     //-- pero no enviamos respusta (todavía)
 }
 
+
 //-- Activar la función de retrollamada del servidor
 server.on('request', atender);
 
+
 //-- Activar el servidor. A la escucha de peitciones
-//-- en el puerto definido
+//-- en el puerto definido.
 server.listen(port);
+
+console.log("Servidor activado. Escuchando en el puerto: " + port)
