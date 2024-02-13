@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
   console.log("Petición recibida!");
 
   //-- Cabecera que indica el tipo de datos del
-  //-- cuerpo de la respuesta: Texto plano
+  //-- cuerpo de la respuesta: Texto HTML
   res.setHeader('Content-Type', 'text/html');
 
   //-- Mensaje del cuerpo
