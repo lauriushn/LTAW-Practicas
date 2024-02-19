@@ -25,7 +25,7 @@ function atender(req, res) {
     res.setHeader('Content-Type', 'text/plain');
 
     //-- Mensaje del cuerpo
-    res.write("Hola!!\n");
+    res.write("Lanzando tienda-server...");
 
     //-- Terminar la respuesta y enviarla
     res.end();
