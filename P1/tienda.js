@@ -2,6 +2,7 @@
 
 //-- Importamos los módulos necesarios
 const http = require('http');
+const fs = require('fs');
 
 //-- Crear el servidor
 const server = http.createServer();
