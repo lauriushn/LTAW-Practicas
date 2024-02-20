@@ -19,7 +19,7 @@ const server = http.createServer((req, res) => {
     console.log("La URL del recurso es: " + url.href);
     console.log("  Ruta: " + url.pathname);
 
-    if (url.pathname == '/') {
+    if (url.pathname == '/' | url.pathname == '/index.html') {
 
         //-- Leemos el fichero index.html
         fs.readFile(tienda, (err, data) => {
