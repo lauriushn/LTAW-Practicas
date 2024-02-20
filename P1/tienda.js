@@ -5,20 +5,31 @@ const http = require('http');
 const fs = require('fs');
 
 //-- Definimos las constantes
-const port = 9090;  //http://127.0.0.1:9090/
+const port = 9090;  // http://127.0.0.1:9090/
 const tienda = "index.html";
+
 
 //-- Creamos el servidor
 const server = http.createServer((req, res) => {
-    console.log("Peticion recibida!");
+    console.log("Petición recibida!");
 
-    //-- Analizar el recurso
-    //-- Construir el objeto url con la url de la solicitud
-    const url = new URL(req.url, 'http://' + req.headers['host']);
-    console.log(url.pathname);
-})
+    //-- Leemos el archivo index.html
+    fs.readFile(tienda, (err, data) => {
+        if (err) {
+            console.log("Error!!");
+            console.log(err.message);
 
-//-- Activar el servidor. A la escucha de peitciones
+        } else {  //-- Lectura normal
+            res.setHeader('Content-Type', 'text/html');
+            res.write(data);
+            res.end();
+        }
+    });
+});
+
+//-- Activar el servidor. A la escucha de peticiones
 //-- en el puerto definido
 server.listen(port);
 console.log("Servidor arrancado. Escuchando en puerto " + port);
+
+
