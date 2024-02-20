@@ -15,28 +15,35 @@ const pag_404 = fs.readFileSync(pag_error);
 const server = http.createServer((req, res) => {
     console.log("Petición recibida!");
 
-    let myURL = new URL(req.url, 'http://' + req.headers['host']);
-    console.log("La URL del recurso es: " + myURL.href);
+    let url = new URL(req.url, 'http://' + req.headers['host']);
+    console.log("La URL del recurso es: " + url.href);
+    console.log("  Ruta: " + url.pathname);
 
-    //-- Leemos el fichero index.html
-    fs.readFile(tienda, (err, data) => {
-        if (err) {
-            console.log("Error!!")
-            console.log(err.message);
-            
-            res.write(pag_404);
-            res.end();
+    if (url.pathname == '/') {
 
-        }
-        else {  //-- Lectura normal
-            res.setHeader('Content-Type','text/html');
-            res.write(data);
-            res.end();
-        }
-    });
+        //-- Leemos el fichero index.html
+        fs.readFile(tienda, (err, data) => {
+            if (err) {  //-- Si hay error
+                console.log("Error!!")
+                console.log(err.message);
+                
+                res.write(pag_404);
+                res.end();
+            }
+            else {  //-- Lectura normal
+                res.setHeader('Content-Type','text/html');
+                res.write(data);
+                res.end();
+            }
+        });
+    }
+
+    else {
+        console.log("Solicitud de un recurso no válido");
+        res.write(pag_404);
+        res.end();
+    }   
 });
-
-
 
 //-- Activar el servidor. A la escucha de peticiones
 //-- en el puerto definido
