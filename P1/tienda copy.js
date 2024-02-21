@@ -5,7 +5,7 @@ const http = require('http');
 const fs = require('fs');
 
 //-- Definimos las constantes
-const port = 9092;  //http://127.0.0.1:9090/
+const port = 9091;  //http://127.0.0.1:9090/
 const tienda = "index.html";
 const pag_error = "error.html"
 
@@ -22,7 +22,7 @@ const server = http.createServer((req, res) => {
     //-- Creamos una variable vacía para ir almacenando los recursos solicitados
     let recursos = "";
 
-    if (url.pathname == '/' || url.pathname == '/index.html') {
+    if (url.pathname == '/' | url.pathname == '/index.html') {
         
         recursos += tienda;
         console.log("Recurso: " + recursos);
@@ -46,24 +46,43 @@ const server = http.createServer((req, res) => {
     else {
         recursos += url.pathname.substring(1)  //-- Eliminamos el primer caracter del recurso, el '/'
         console.log("Recurso2: " + recursos);
+        
+    }
 
-        fs.readFile(recursos, (err, data) => {
-            if (err) { //-- Si hay error
-                console.log("Error!! Solicitud de recurso no válido!");
+
+
+
+
+
+
+
+    else if (url.pathname == "/producto1.html" | url.pathname == "/producto2.html" | url.pathname == "/producto3.html"){
+        
+        
+        //-- Leemos el fichero productoX.html
+        const producto = url.pathname.split('/')[1];  //-- Me quedo con el nombre del fichero
+
+        fs.readFile(producto, (err, data) => {
+            if (err) {  //-- Si hay error
+                console.log("Error!!")
                 console.log(err.message);
-
+                
                 res.write(pag_404);
                 res.end();
             }
             else {  //-- Lectura normal
-                res.setHeader('Content-Type', 'text/html');
+                res.setHeader('Content-Type','text/html');
                 res.write(data);
                 res.end();
-
             }
-        })
-        
-    } 
+        });
+    }
+
+    else {
+        console.log("Solicitud de un recurso no válido");
+        res.write(pag_404);
+        res.end();
+    }   
 });
 
 //-- Activar el servidor. A la escucha de peticiones
