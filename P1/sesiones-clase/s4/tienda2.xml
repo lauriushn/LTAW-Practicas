@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Estructura de mi tienda -->
+
+
+<!-- Nodo raiz -->
+<tienda>
+
+  <!-- Mi tienda contiene productos/articulos -->
+  <producto>
+    <nombre>Alhambra II</nombre>
+    <descripcion>Es una placa FPGA</descripcion>
+    <stock>3</stock>
+    <precio>60€</precio>
+  </producto>
+
+  <producto>
+    <nombre>Arduino uno</nombre>
+    <descripcion>Es una placa con un microcontrolador</descripcion>
+    <stock>2</stock>
+    <precio>30€</precio>
+  </producto>
+
+  <producto>
+    <nombre>Rasberry pi</nombre>
+    <descripcion>Es una placa que corre linux</descripcion>
+    <stock>10</stock>
+    <precio>50€</precio>
+  </producto>
+
+</tienda>
