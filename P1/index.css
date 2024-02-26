@@ -27,7 +27,7 @@ h1 {
 }
 
 .producto {
-    width: calc(100%/3); /* Divide el ancho en 3 partes iguales*/
+    flex-basis: 30%;/* Ajusta el ancho de cada elemento */
     border: 2px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
@@ -37,8 +37,6 @@ h1 {
 .producto img {
     width: 100%;
     height: auto;
-    object-fit: cover; /* Para que la imagen cubra todo el espacio disponible */
-    object-position: center; /* Para centrar la imagen */
 }
 
 .producto p {
