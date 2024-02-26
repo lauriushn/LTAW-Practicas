@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Declaracion de la gramatica -->
+<!DOCTYPE tienda [
+    <!ELEMENT tienda (producto*)> 
+    <!ELEMENT producto (nombre, descripcion, stock?)>  <!--La interrogación indica que es opcional, 
+                                                        no es obliatorio que aparezca la etiqueta stock-->
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT descripcion (#PCDATA)>
+    <!ELEMENT stock (#PCDATA)>
+]>
+
+<!-- Dentro del elemento tienda solo puede haber
+     cadenas de texto. Ninguna etiqueta -->
+<tienda>
+    <producto>
+        <nombre>Alhambra-II</nombre>
+        <descripcion>Placa con FPGA</descripcion>
+        <stock>3</stock>
+    </producto>
+</tienda>

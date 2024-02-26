@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Declaracion de la gramatica -->
+<!DOCTYPE tienda [
+    <!ELEMENT tienda (#PCDATA)>
+]>
+
+<!-- Dentro del elemento tienda solo puede haber
+     cadenas de texto. Ninguna etiqueta -->
+<tienda>
+    Mi tienda tiene productos de electrónica.
+
+Voy a tener 3 productos
+
+* Producto 1: Alhambra-II: es una placa FPGA. En la tienda tengo
+    3 en stock. Precio de 60€.
+* Producto 2: Arduino uno: es una placa con microcontrolador.
+    Tengo 2 en stock. Precio de 30€.
+* Producto 3: Rasberry pi: Placa que corre linux, Tengo 10 
+    en stock. Precio de 50€.
+</tienda>

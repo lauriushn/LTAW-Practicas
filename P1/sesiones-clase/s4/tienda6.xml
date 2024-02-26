@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Declaracion de la gramatica -->
+<!DOCTYPE tienda SYSTEM "tienda.dtd">
+
+<!-- Dentro del elemento tienda solo puede haber
+     cadenas de texto. Ninguna etiqueta -->
+<tienda>
+    <producto>
+        <nombre>Alhambra-II</nombre>
+        <descripcion>Placa con FPGA</descripcion>
+        <stock>3</stock>
+    </producto>
+</tienda>
