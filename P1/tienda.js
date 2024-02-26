@@ -5,7 +5,7 @@ const http = require('http');
 const fs = require('fs');
 
 //-- Definimos las constantes
-const port = 9092;  //http://127.0.0.1:9090/
+const port = 9090;  //http://127.0.0.1:9090/
 const tienda = "index.html";
 const pag_error = "error.html"
 
