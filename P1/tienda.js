@@ -43,7 +43,7 @@ const server = http.createServer((req, res) => {
             }
         })
     }
-    else if (url.pathname == 'index.css') {
+    else if (url.pathname.endsWith('.css')) {   //-- .endsWith sirve para ver si la url acaba en '.css'
         recursos += url.pathname.substring(1)  //-- Eliminamos el primer caracter del recurso, el '/'
         console.log("Recurso-css: " + recursos);
         
