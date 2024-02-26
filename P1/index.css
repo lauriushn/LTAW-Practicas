@@ -4,8 +4,7 @@
   }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: white;
+    background-color: rgb(228, 228, 228);
     margin: 0;
     padding: 0;
 }
@@ -18,11 +17,11 @@ body {
 }
 
 h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Indie Flower', cursive; 
+    background-color: white;
+    box-shadow: 0 2px 4px rgb(134, 134, 134);
     padding: 20px 0;
-    font-size: 50px;
+    font-size: 80px;
     color: black;
 }
 
@@ -35,10 +34,10 @@ h1 {
 
 .producto {
     flex-basis: calc(100%/3 - 20px); /* Ajusta el ancho de cada elemento */
-    border: 2px solid #ddd;
+    border: 2px solid rgb(190, 190, 190);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgb(134, 134, 134);
 }
 
 .producto img {
@@ -49,7 +48,8 @@ h1 {
 }
 
 .producto p {
-    font-size: 25px;
+    background-color: white;
+    font-size: 30px;
     color: black;
     padding: 20px;
     margin: 0;
