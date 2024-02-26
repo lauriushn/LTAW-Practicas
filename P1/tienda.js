@@ -17,7 +17,7 @@ const server = http.createServer((req, res) => {
 
     let url = new URL(req.url, 'http://' + req.headers['host']);
     console.log("La URL del recurso es: " + url.href);
-    console.log("  Ruta: " + url.pathname);
+    console.log(" *Ruta: " + url.pathname);
 
     //-- Creamos una variable vacía para ir almacenando los recursos solicitados
     let recursos = "";
@@ -41,11 +41,30 @@ const server = http.createServer((req, res) => {
                 res.write(data);
                 res.end();
             }
-        });
+        })
+    }
+    else if (url.pathname == 'index.css') {
+        recursos += url.pathname.substring(1)  //-- Eliminamos el primer caracter del recurso, el '/'
+        console.log("Recurso-css: " + recursos);
+        
+        fs.readFile(recursos, (err, data) => {
+            if (err) { //-- Si hay error
+                console.log("Error!! Solicitud de recurso no válido!");
+                console.log(err.message);
+
+                res.write(pag_404);
+                res.end();
+            }
+            else {  //-- Lectura normal
+                res.setHeader('Content-Type', 'text/css');
+                res.write(data);
+                res.end();
+            }
+        })
     }
     else {
         recursos += url.pathname.substring(1)  //-- Eliminamos el primer caracter del recurso, el '/'
-        console.log("Recurso2: " + recursos);
+        console.log("Recurso-prodcuto: " + recursos);
 
         fs.readFile(recursos, (err, data) => {
             if (err) { //-- Si hay error
