@@ -2,17 +2,16 @@
 * {
     box-sizing: border-box;
   }
+body {
+  text-align: center;
+}
 
 h1 {
-    text-align: center;
+  margin-top: 50px;
+  text-align: center;
+  font-size: 80px;
 
   }
-
-.tallas {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-}
 
 label {
   display: block;
@@ -24,7 +23,32 @@ select {
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  
+}
+
+.contenedor {
+  text-align: center;
+  align-items: center;
+}
+
+.tallas {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.nike {
+  width: calc(23% - 20px);
+  height: auto;
+  margin: 10px;
+  cursor: pointer;
+
+}
+
+/* Estilos para la imagen seleccionada */
+.img-seleccionada {
+  border: 2px solid transparent;
+  transform: scale(1.2);
 }
  
 /* Estilos para la opción agotada */
@@ -33,3 +57,14 @@ option[disabled] {
   font-style: italic;
 }
 
+/* esto lo utilizamos para que se adapte a la pantalla de movil:*/
+@media screen and (max-width: 600px) {
+  .nike {
+    width: calc(50% - 20px); /* Cambiamos el ancho para que haya dos imágenes por fila */
+}
+
+.tallas {
+    max-width: 90%; /* Reducimos el ancho máximo del contenedor de tallas */
+}
+
+}
