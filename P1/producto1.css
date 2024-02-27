@@ -26,11 +26,6 @@ select {
   
 }
 
-.contenedor {
-  text-align: center;
-  align-items: center;
-}
-
 .tallas {
   max-width: 400px;
   margin: 0 auto;
