@@ -26,4 +26,10 @@ select {
   border-radius: 5px;
   border: 1px solid #ccc;
 }
-  
+ 
+/* Estilos para la opción agotada */
+option[disabled] {
+  color: gray;
+  font-style: italic;
+}
+
