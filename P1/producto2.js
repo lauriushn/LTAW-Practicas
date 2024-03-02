@@ -1,5 +1,5 @@
 // Seleccionar todas las imágenes con la clase 'nike'
-const imagenes = document.querySelectorAll('.nike');
+const imagenes = document.querySelectorAll('.adidas');
 
 // Iterar sobre cada imagen y añadir un evento de clic
 imagenes.forEach((imagen) => {
