@@ -19,14 +19,31 @@ h1 {
 label {
   display: block;
   margin-bottom: 10px;
+  font-size: 25px;
 }
 
 select {
   width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
+  padding: 15px;
+  font-size: 25px;
+  border-radius: 10px;
+  margin-bottom: 20px;
   
+}
+
+button {
+  padding: 15px 20px; /* Aumentamos el padding para que sea más grande */
+  font-size: 20px; /* Aumentamos el tamaño del texto */
+  border-radius: 10px; /* Aumentamos el radio de borde para que sea más redondeado */
+  background-color: grey; /* Cambiamos el color de fondo para que sea más llamativo */
+  color: white; /* Cambiamos el color del texto a blanco para que sea más legible */
+  border: none; /* Quitamos el borde para que se vea más limpio */
+  cursor: pointer;
+}
+
+/* Estilos para el botón "Página Principal" al pasar el mouse sobre él */
+button:hover {
+  background-color: #0056b3; /* Cambiamos el color de fondo al pasar el mouse sobre él */
 }
 
 .tallas {
