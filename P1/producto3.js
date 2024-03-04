@@ -1,17 +1,22 @@
-// Seleccionar todas las imágenes con la clase 'nike'
+// Seleccionar todas las imágenes con la clase 'puma'
 const imagenes = document.querySelectorAll('.puma');
 
 // Iterar sobre cada imagen y añadir un evento de clic
 imagenes.forEach((imagen) => {
     imagen.addEventListener('click', () => {
-        // Remover la clase 'img-seleccionada' de todas las imágenes
+        // Verificar si la imagen ya está seleccionada
+        const estaSeleccionada = imagen.classList.contains('img-seleccionada');
+        
+        // Remover la clase 'img-seleccionada' y restaurar el tamaño de la imagen
         imagenes.forEach((img) => {
             img.classList.remove('img-seleccionada');
             img.style.transform = 'scale(1)'; // Restablecer el tamaño de la imagen
         });
-        // Añadir la clase 'img-seleccionada' a la imagen seleccionada
-        imagen.classList.add('img-seleccionada');
-        // Aplicar un aumento de tamaño a la imagen seleccionada
-        imagen.style.transform = 'scale(1.2)';
+        
+        // Si la imagen no estaba seleccionada, se selecciona y se aumenta su tamaño
+        if (!estaSeleccionada) {
+            imagen.classList.add('img-seleccionada');
+            imagen.style.transform = 'scale(1.2)';
+        }
     });
 });
