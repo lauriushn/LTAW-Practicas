@@ -59,6 +59,7 @@ button:hover {
   height: auto;
   margin: 10px;
   cursor: pointer;
+  margin-top: 200px;
 }
 
 /* Estilos para la imagen seleccionada */
