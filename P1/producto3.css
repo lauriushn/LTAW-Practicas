@@ -7,3 +7,29 @@ h1 {
     text-align: center;
 
   }
+
+.puma {
+  width: calc(30% - 20px);
+  height: auto;
+  margin: 10px;
+  cursor: pointer;
+  margin-top: 200px;
+}
+
+/* Estilos para la imagen seleccionada */
+.img-seleccionada {
+  border: 2px solid transparent;
+  transform: scale(1.2);
+}
+
+/* esto lo utilizamos para que se adapte a la pantalla de movil:*/
+@media screen and (max-width: 600px) {
+  .nike {
+    width: calc(50% - 20px); /* Cambiamos el ancho para que haya dos imágenes por fila */
+}
+
+.tallas {
+    max-width: 90%; /* Reducimos el ancho máximo del contenedor de tallas */
+}
+
+}
