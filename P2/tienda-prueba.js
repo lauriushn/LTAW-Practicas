@@ -5,7 +5,7 @@ const http = require('http');
 const fs = require('fs');
 
 //-- Definimos las constantes
-const port = 9090;  //http://127.0.0.1:9090/
+const port = 9092;  //http://127.0.0.1:9090/
 const tienda = "index.html";
 const pag_error = "error.html"
 
@@ -30,23 +30,13 @@ const server = http.createServer((req, res) => {
         recursos += tienda;
         console.log("Recurso: " + recursos);
 
-        //-- Leemos el fichero index.html
-        fs.readFile(tienda, (err, data) => {
-            if (err) {  //-- Si hay error
-                console.log("Error!!")
-                console.log(err.message);
-                
-                res.write(pag_404);
-                res.end();
-            }
-            else {  //-- Lectura normal
-                res.setHeader('Content-Type','text/html');
-                res.write(data);
-                res.end();
-            }
-        })
+    } else {
+        recursos += url.pathname.substring(1);
     }
-    else if (url.pathname.endsWith('.css')) {   //-- .endsWith sirve para ver si la url acaba en '.css'
+
+
+
+    if (recursos.endsWith('.css')) {   //-- .endsWith sirve para ver si la url acaba en '.css'
         recursos += url.pathname.substring(1)  //-- Eliminamos el primer caracter del recurso, el '/'
         console.log("Recurso-css: " + recursos);
         
@@ -66,24 +56,19 @@ const server = http.createServer((req, res) => {
         })
     }
     else {
-        recursos += url.pathname.substring(1)  //-- Eliminamos el primer caracter del recurso, el '/'
-        console.log("Recurso-prodcuto: " + recursos);
-
-        fs.readFile(recursos, (err, data) => {
-            if (err) { //-- Si hay error
-                console.log("Error!! Solicitud de recurso no válido!");
-                console.log(err.message);
-
-                res.write(pag_404);
-                res.end();
-            }
-            else {  //-- Lectura normal
-                res.setHeader('Content-Type', 'text/html');
-                res.write(data);
-                res.end();
-            }
-        })
-    } 
+        // Lectura de otros recursos (HTML, JSON)
+        const recursos_data = tienda_json[recursos];
+        if (recursos_data) {
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.write(JSON.stringify(recursos_data));
+            res.end();
+        } else {
+            console.log("Error!! Solicitud de recurso no válido!");
+            res.writeHead(404, { 'Content-Type': 'text/html' });
+            res.write(pag_404);
+            res.end();
+        }
+    }
 });
 
 //-- Activar el servidor. A la escucha de peticiones
