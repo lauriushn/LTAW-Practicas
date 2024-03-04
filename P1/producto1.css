@@ -32,6 +32,7 @@ select {
 }
 
 button {
+  margin-top: 5px;
   padding: 15px 20px; /* Aumentamos el padding para que sea más grande */
   font-size: 20px; /* Aumentamos el tamaño del texto */
   border-radius: 10px; /* Aumentamos el radio de borde para que sea más redondeado */
@@ -58,8 +59,6 @@ button:hover {
   height: auto;
   margin: 10px;
   cursor: pointer;
-  margin-top: 200px;
-
 }
 
 /* Estilos para la imagen seleccionada */

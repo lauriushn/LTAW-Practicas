@@ -27,12 +27,11 @@ select {
   width: 100%;
   padding: 15px;
   font-size: 25px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  
+  border-radius: 10px;  
 }
 
 button {
+  margin-top: 5px;
   padding: 15px 20px; /* Aumentamos el padding para que sea más grande */
   font-size: 20px; /* Aumentamos el tamaño del texto */
   border-radius: 10px; /* Aumentamos el radio de borde para que sea más redondeado */
