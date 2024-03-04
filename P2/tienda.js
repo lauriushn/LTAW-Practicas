@@ -11,6 +11,9 @@ const pag_error = "error.html"
 
 const pag_404 = fs.readFileSync(pag_error);
 
+const fichero_json = fs.readFileSync('tienda.json');
+const tienda_json = JSON.parse(fichero_json)
+
 //-- Creamos el servidor
 const server = http.createServer((req, res) => {
     console.log("Petición recibida!");
