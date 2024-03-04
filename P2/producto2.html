@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adidas-Superstar</title>
+
+    <!-- Hoja de estilo -->
+    <link rel="stylesheet" href="producto2.css">
+
+    <!-- JavaScript -->
+    <script src="producto2.js" defer></script> <!-- Deferimos la carga del script para que cargue después del contenido HTML -->
+
+</head>
+<body>
+    <h1>Adidas Superstar</h1>
+    <div class="contenedor">
+        <div class="colores">
+            <img src="imagenes/adidas-negras.png" alt="Negras" class="adidas">
+            <img src="imagenes/adidas-blancas.png" alt="Blancas" class="adidas">
+            <img src="imagenes/adidas-color.png" alt="Negra-blancas" class="adidas">
+        </div>
+
+        <div class="tallas">
+            <label for="talla">Selecciona tu talla:</label>
+            <select id="talla" name="talla">
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41" disabled>41 (Agotado)</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44" disabled>44 (Agotado)</option>
+                <option value="45" disabled>45 (Agotado)</option>
+            </select>
+        </div>
+
+        <div class="detalles">
+            <p class="descripcion">
+                "Las adidas Superstar, ya sean negras, blancas o de cualquier otro color, se
+                han convertido en todo un icono. Su amplia variedad de modelos y combinaciones
+                de colores las convierte en unas zapatillas ideales."
+            </p>
+            <p class="precio"> 
+                Precio: <span>120€</span>
+            </p>
+        </div>
+        
+        <a href="index.html">
+            <button>Página Principal</button>
+    </div>
+    
+</body>
+</html>

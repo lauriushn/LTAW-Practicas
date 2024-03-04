@@ -1,0 +1,57 @@
+/* Así definimos el comportamiento de caja para todos los elementos */
+* {
+    box-sizing: border-box;
+  }
+
+body {
+    background-color: rgb(228, 228, 228);
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 60px;
+}
+
+h1 {
+    font-family: 'Indie Flower', cursive; 
+    background-color: white;
+    box-shadow: 0 2px 4px rgb(134, 134, 134);
+    padding: 20px 0;
+    font-size: 80px;
+    color: black;
+}
+
+.productos {
+    padding: 40px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;  /* Distribuye los elementos equitativamente en el espacio */
+}
+
+.producto {
+    flex-basis: calc(100%/3 - 20px); /* Ajusta el ancho de cada elemento */
+    border: 2px solid rgb(190, 190, 190);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgb(134, 134, 134);
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+.producto p {
+    background-color: white;
+    font-size: 30px;
+    color: black;
+    padding: 20px;
+    margin: 0;
+}
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike-Shox</title>
+
+    <!-- Hoja de estilo -->
+    <link rel="stylesheet" href="producto1.css">
+
+    <!-- JavaScript -->
+    <script src="producto1.js" defer></script> <!-- Deferimos la carga del script para que cargue después del contenido HTML -->
+
+</head>
+<body>
+    <h1>Nike Shox</h1>
+    <div class="contenedor">
+        <div class="colores">
+            <img src="imagenes/nike-gris.jpeg" alt="Grises" class="nike">
+            <img src="imagenes/nike-blancas.jpeg" alt="Blancas" class="nike">
+            <img src="imagenes/nike-negras.jpeg" alt="Negras" class="nike">
+            <img src="imagenes/nike-color.jpeg" alt="Multicolor" class="nike">
+        </div>
+
+        <div class ="tallas">
+            <label for="talla">Selecciona tu talla:</label>
+            <select id="talla" name="talla">
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45" disabled>45 (Agotado)</option>
+            </select>
+        </div>
+
+        <div class="detalles">
+            <p class="descripcion">
+                "Regresan las Nike Shox lanzadas en 2003 pero con una versión renovada,
+                disponen de una malla transpirable y la tecnología Nike Shox para ofrecer 
+                una absorción de impactos y una mediasuela de espuma que hace que este 
+                modelo sea más ligero que el original."
+            </p>
+            <p class="precio"> 
+                Precio: <span>149.50€</span>
+            </p>
+        </div>
+
+        <a href="index.html">
+            <button>Página Principal</button>
+    </div>
+</body>
+</html>
