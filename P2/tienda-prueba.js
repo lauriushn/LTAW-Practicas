@@ -3,16 +3,12 @@
 //-- Importamos los módulos necesarios
 const http = require('http');
 const fs = require('fs');
+const path = require('path');
 
 //-- Definimos las constantes
-const port = 9092;  //http://127.0.0.1:9090/
-const tienda = "index.html";
-const pag_error = "error.html"
-
+const port = 9092;
+const pag_error = "error.html";
 const pag_404 = fs.readFileSync(pag_error);
-
-const fichero_json = fs.readFileSync('tienda.json');
-const tienda_json = JSON.parse(fichero_json)
 
 //-- Creamos el servidor
 const server = http.createServer((req, res) => {
@@ -22,58 +18,54 @@ const server = http.createServer((req, res) => {
     console.log("La URL del recurso es: " + url.href);
     console.log(" *Ruta: " + url.pathname);
 
-    //-- Creamos una variable vacía para ir almacenando los recursos solicitados
-    let recursos = "";
+    //-- Creamos una variable para almacenar los recursos solicitados
+    let recurso = "";
 
     if (url.pathname == '/' || url.pathname == '/index.html') {
-        
-        recursos += tienda;
-        console.log("Recurso: " + recursos);
-
+        recurso = "index.html";
     } else {
-        recursos += url.pathname.substring(1);
+        recurso = url.pathname.substring(1); // Eliminamos el primer caracter del recurso, el '/'
     }
 
+    // Obtenemos la extensión del archivo solicitado
+    const extension = path.extname(recurso);
 
-
-    if (recursos.endsWith('.css')) {   //-- .endsWith sirve para ver si la url acaba en '.css'
-        recursos += url.pathname.substring(1)  //-- Eliminamos el primer caracter del recurso, el '/'
-        console.log("Recurso-css: " + recursos);
-        
-        fs.readFile(recursos, (err, data) => {
-            if (err) { //-- Si hay error
-                console.log("Error!! Solicitud de recurso no válido!");
-                console.log(err.message);
-
-                res.write(pag_404);
-                res.end();
-            }
-            else {  //-- Lectura normal
-                res.setHeader('Content-Type', 'text/css');
-                res.write(data);
-                res.end();
-            }
-        })
+    // Definimos el tipo de contenido según la extensión del archivo
+    let contentType = '';
+    switch (extension) {
+        case '.html':
+            contentType = 'text/html';
+            break;
+        case '.css':
+            contentType = 'text/css';
+            break;
+        case '.png':
+            contentType = 'image/png';
+            break;
+        case '.jpg':
+        case '.jpeg':
+            contentType = 'image/jpeg';
+            break;
+        default:
+            contentType = 'text/plain';
     }
-    else {
-        // Lectura de otros recursos (HTML, JSON)
-        const recursos_data = tienda_json[recursos];
-        if (recursos_data) {
-            res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.write(JSON.stringify(recursos_data));
-            res.end();
-        } else {
+
+    // Leemos el archivo solicitado
+    fs.readFile(recurso, (err, data) => {
+        if (err) {
             console.log("Error!! Solicitud de recurso no válido!");
+            console.log(err.message);
             res.writeHead(404, { 'Content-Type': 'text/html' });
             res.write(pag_404);
             res.end();
+        } else {
+            res.writeHead(200, { 'Content-Type': contentType });
+            res.write(data);
+            res.end();
         }
-    }
+    });
 });
 
-//-- Activar el servidor. A la escucha de peticiones
-//-- en el puerto definido
+//-- Activar el servidor para escuchar peticiones en el puerto definido
 server.listen(port);
 console.log("Servidor arrancado. Escuchando en puerto " + port);
-
-
