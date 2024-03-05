@@ -64,7 +64,7 @@ const server = http.createServer((req, res) => {
     }
     else {
         recursos += url.pathname.substring(1)  //-- Eliminamos el primer caracter del recurso, el '/'
-        console.log("Recurso-prodcuto: " + recursos);
+        console.log("Recurso-producto: " + recursos);
 
         fs.readFile(recursos, (err, data) => {
             if (err) { //-- Si hay error
