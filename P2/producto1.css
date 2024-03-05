@@ -18,17 +18,15 @@ h1 {
 
 label {
   display: block;
-  margin-bottom: 10px;
-  font-size: 25px;
+  margin-bottom: 5px;
+  font-size: 23px;
 }
 
 select {
   width: 100%;
-  padding: 15px;
-  font-size: 25px;
+  padding: 10px;
+  font-size: 20px;
   border-radius: 10px;
-  margin-bottom: 20px;
-  
 }
 
 button {
@@ -45,6 +43,22 @@ button {
 /* Estilos para el botón "Página Principal" al pasar el mouse sobre él */
 button:hover {
   background-color: #ff4c4c; /* Cambiamos el color de fondo al pasar el mouse sobre él */
+}
+
+#agregarcarrito {
+  background-color: #ffc8c8;
+  color: #000000;
+  font-size: 30px;
+  margin-left: 10px;
+  transition: transform 0.2s ease; /* Agregamos una transición suave al cambio de color de fondo */
+}
+
+#agregarcarrito:hover {
+  background-color: #e2bfff; /* Cambiamos el color de fondo al pasar el mouse sobre él */
+}
+
+#agregarcarrito:active {
+  transform: scale(1.2); /* Aumentamos ligeramente la escala cuando se hace clic */
 }
 
 .tallas {

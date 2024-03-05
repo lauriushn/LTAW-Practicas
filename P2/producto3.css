@@ -19,15 +19,15 @@ h1 {
 
 label {
   display: block;
-  margin-bottom: 10px;
-  font-size: 25px;
+  margin-bottom: 5px;
+  font-size: 23px;
 }
 
 select {
   width: 100%;
-  padding: 15px;
-  font-size: 25px;
-  border-radius: 10px;  
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10px;
 }
 
 button {
