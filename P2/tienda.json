@@ -2,11 +2,13 @@
     "usuarios": [
       {
         "nombre_usuario": "Root",  
+        "password": "root",
         "nombre_real": "Laura Hernández",
         "correo": "l.hernandez@gmail.com"
       },
       {
         "nombre_usuario": "marthius",
+        "password": "marta",
         "nombre_real": "Marta Garrido",
         "correo": "m.garrido@gmail.com"
       }
