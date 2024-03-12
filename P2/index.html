@@ -9,6 +9,9 @@
    <link rel="stylesheet" href="index.css">
    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap">
 
+   <!-- JavaScript -->
+   <script src="index.js" defer></script> <!-- Deferimos la carga del script para que cargue después del contenido HTML -->
+
 </head>
 <body>
     <div class="contenedor">
@@ -36,6 +39,22 @@
                 <p>Puma 180</p>
             </div>
         </div>
-    </div>    
+    </div>
+    
+    
+    <div id="loginSection" class="login">
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm" onsubmit="return loginUser()">
+            <label for="username">Nombre de Usuario:</label>
+            <input type="text" id="username" name="username" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+    </div>
+    
+    <div id="userInfoSection" class="userInfo" style="display: none;">
+        <p id="loggedInMessage"></p>
+        <button onclick="logoutUser()">Cerrar Sesión</button>
+    </div>
+
 </body>
 </html>
