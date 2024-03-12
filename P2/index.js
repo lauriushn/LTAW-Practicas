@@ -16,7 +16,9 @@ function loginUser() {
                     // Ocultar el formulario de inicio de sesión y mostrar la información del usuario
                     document.getElementById("loginSection").style.display = "none";
                     document.getElementById("userInfoSection").style.display = "block";
-                }
+                    // Mostrar el mensaje de conexión con el nombre de usuario
+                    document.getElementById("loggedInMessage").innerText = "¡Conectado como " + username + "!";
+                }   
             });
 
             // Si no se encuentra el usuario, muestra un mensaje de error
