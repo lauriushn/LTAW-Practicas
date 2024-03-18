@@ -82,8 +82,9 @@ h1 {
     color: black;
 }
 
-.login input[type="text"] {
-    width: 100%;
+.login input[type="text"],
+.login input[type="password"] {
+    width: calc(90% - 10px); /* Ancho del campo de contraseña menos el ancho del botón */
     padding: 10px;
     font-size: 16px;
     border-radius: 5px;
@@ -91,60 +92,14 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Estilo para el botón de enviar del formulario */
-.login button {
-    width: 100%;
-    padding: 12px;
-    font-size: 18px;
-    background-color: #ff8686;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.login button:hover {
-    background-color: #ff4b4b;
-}
-
-/* Estilo para el mensaje de inicio de sesión */
-#loginMessage {
-    margin-top: 20px;
-    font-size: 18px;
+/* Estilo para el botón de visualización de contraseña */
+#togglePassword {
+    width: 40px; /* Ancho fijo del botón */
+    padding: 10px;
+    font-size: 20px;
     color: #555;
-}
-
-/* Estilo para el contenedor de información del usuario */
-.userInfo {
-    max-width: 400px;
-    margin: 50px auto;
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilo para el mensaje de conexión */
-#loggedInMessage {
-    font-size: 18px;
-    color: black;
-    margin-bottom: 20px;
-}
-
-/* Estilo para el botón de cerrar sesión */
-.userInfo button {
-    width: 100%;
-    padding: 12px;
-    font-size: 18px;
-    background-color: #ff8686;
-    color: black;
     border: none;
-    border-radius: 5px;
+    background: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.userInfo button:hover {
-    background-color: #ff4b4b;
+    text-align: center;
 }

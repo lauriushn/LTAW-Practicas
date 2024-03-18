@@ -47,6 +47,12 @@
         <form id="loginForm" onsubmit="return loginUser()">
             <label for="username">Nombre de Usuario:</label>
             <input type="text" id="username" name="username" required>
+            <label for="password">Contraseña:</label>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <button type="button" id="togglePassword">👁️</button>
+            </div>
+
             <button type="submit">Iniciar Sesión</button>
         </form>
     </div>

@@ -1,6 +1,7 @@
 //-- FUNCIÓN PARA INICIAR SESIÓN
 function loginUser() {
     var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
     var foundUser = false;
 
     // Realizar una solicitud fetch para obtener la base de datos de usuarios desde el archivo JSON externo
@@ -9,8 +10,8 @@ function loginUser() {
         .then(data => {
             // Recorre la lista de usuarios en la base de datos JSON obtenida
             data.usuarios.forEach(user => {
-                if (user.nombre_usuario === username) {
-                    // Si se encuentra el usuario, almacena el nombre de usuario en sessionStorage
+                if (user.nombre_usuario === username && user.password === password) {
+                    // Si se encuentra el usuario y la contraseña coincide, almacena el nombre de usuario en sessionStorage
                     sessionStorage.setItem('usuarioConectado', username);
                     foundUser = true;
                     // Ocultar el formulario de inicio de sesión y mostrar la información del usuario
@@ -21,9 +22,9 @@ function loginUser() {
                 }   
             });
 
-            // Si no se encuentra el usuario, muestra un mensaje de error
+            // Si no se encuentra el usuario o la contraseña es incorrecta, muestra un mensaje de error
             if (!foundUser) {
-                document.getElementById("loginMessage").innerText = "Nombre de usuario incorrecto.";
+                document.getElementById("loginMessage").innerText = "Usuario o contraseña incorrectos.";
             }
         })
         .catch(error => {
@@ -42,3 +43,15 @@ function logoutUser() {
     document.getElementById("loginSection").style.display = "block";
     document.getElementById("userInfoSection").style.display = "none";
 }
+
+//-- Evento para mostrar/ocultar la contraseña
+document.getElementById("togglePassword").addEventListener("click", function() {
+    var passwordInput = document.getElementById("password");
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        this.textContent = "👁️";
+    } else {
+        passwordInput.type = "password";
+        this.textContent = "👁️";
+    }
+});
