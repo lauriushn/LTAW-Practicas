@@ -7,12 +7,11 @@ const fs = require('fs');
 //-- Definimos las constantes
 const port = 9090;  //http://127.0.0.1:9090/
 const tienda = "index.html";
-const pag_error = "error.html"
+const pag_error = "error.html";
+const fichero_json = fs.readFileSync('tienda.json');
+const tienda_json = JSON.parse(fichero_json);
 
 const pag_404 = fs.readFileSync(pag_error);
-
-const fichero_json = fs.readFileSync('tienda.json');
-const tienda_json = JSON.parse(fichero_json)
 
 //-- Creamos el servidor
 const server = http.createServer((req, res) => {
@@ -45,6 +44,28 @@ const server = http.createServer((req, res) => {
                 res.end();
             }
         })
+    }
+    else if (url.pathname == '/login') { // Nueva ruta para el formulario de inicio de sesión
+        if (req.method == 'GET') {
+
+            // Nos muestra el nombre de usuario recibido
+            console.log("Formulario GET:")
+            console.log("Nombre usuario:", url.searchParams.get('username'));
+
+            fs.readFile('login.html', (err, data) => { // Lee el archivo login.html
+                if (err) {
+                    console.log("Error al leer el archivo login.html");
+                    console.log(err);
+                    res.writeHead(404, {'Content-Type': 'text/html'});
+                    res.write('<h1>Error 404: No encontrado</h1>');
+                    res.end();
+                } else {
+                    res.writeHead(200, {'Content-Type': 'text/html'});
+                    res.write(data);
+                    res.end();
+                }
+            });
+        }
     }
     else if (url.pathname.endsWith('.css')) {   //-- .endsWith sirve para ver si la url acaba en '.css'
         recursos += url.pathname.substring(1)  //-- Eliminamos el primer caracter del recurso, el '/'
@@ -90,5 +111,3 @@ const server = http.createServer((req, res) => {
 //-- en el puerto definido
 server.listen(port);
 console.log("Servidor arrancado. Escuchando en puerto " + port);
-
-

@@ -40,27 +40,12 @@
             </div>
         </div>
     </div>
-    
-    
-    <div id="loginSection" class="login">
-        <h2>Iniciar Sesión</h2>
-        <form id="loginForm" onsubmit="return loginUser()">
-            <label for="username">Nombre de Usuario:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Contraseña:</label>
-            <div class="password-container">
-                <input type="password" id="password" name="password" required>
-                <button type="button" id="togglePassword">👁️</button>
-            </div>
 
-            <button type="submit">Iniciar Sesión</button>
-        </form>
+    <!-- Enlace para iniciar sesión -->
+    <div class="login-link">
+        <a href="login.html">
+            <button>Iniciar Sesión</button>
     </div>
     
-    <div id="userInfoSection" class="userInfo" style="display: none;">
-        <p id="loggedInMessage"></p>
-        <button onclick="logoutUser()">Cerrar Sesión</button>
-    </div>
-
 </body>
 </html>
