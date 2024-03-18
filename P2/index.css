@@ -64,6 +64,15 @@ h1 {
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+ 
+.userInfo {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
 /* Estilo para el título del formulario */
 .login h2 {
@@ -98,8 +107,30 @@ h1 {
     padding: 10px;
     font-size: 20px;
     color: #555;
-    border: none;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 5px;
     background: none;
     cursor: pointer;
     text-align: center;
 }
+
+/* Estilo para botones de Iniciar y Cerrar Sesión*/
+/* Estilo para ambos botones */
+.login button,
+.userInfo button {
+    width: calc(91% - 20px); /* Ancho del botón menos el padding */
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+    background-color: #ff8686;
+
+}
+
+.login button:hover,
+.userInfo button:hover {
+    background-color: #ff4545;
+}
+
