@@ -53,7 +53,7 @@ const server = http.createServer((req, res) => {
                 let content = data.toString();
                 let user = get_user(req);
                 if (user) {
-                    content = content.replace('<h3></h3>', `<h3>Conectado como ${user}</h3>`);
+                    content = content.replace('<h3></h3>', `<h3>Bienvenid@ ${user}</h3>`);
                 }
                 res.setHeader('Content-Type', 'text/html');
                 res.write(content);
