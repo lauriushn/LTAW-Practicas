@@ -74,12 +74,12 @@ const server = http.createServer((req, res) => {
                 res.setHeader('Set-Cookie', `user=${username}`);
                 res.writeHead(200, { 'Content-Type': 'text/html' });
                 res.write('<h1>Bienvenido ' + username + '</h1>');
-                res.write('<a href="/">Paina Principal</a>'); // Agregar enlace de regreso
+                res.write('<a href="/">Pagina Principal</a>'); // Agregar enlace de regreso
                 res.end();
             } else {
                 res.writeHead(404, { 'Content-Type': 'text/html' });
                 res.write('<h1>Error 404: Usuario no encontrado</h1>');
-                res.write('<a href="/login">Volver a intentarlo</a>'); // Agregar enlace de regreso
+                res.write('<a href="/login.html">Volver a intentarlo</a>'); // Agregar enlace de regreso
                 res.end();
             }
         }

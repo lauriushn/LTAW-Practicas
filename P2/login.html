@@ -4,25 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
-
     <script src="login.js" defer></script>
 </head>
 <body>
     <h2>Iniciar Sesión</h2>
 
-    <div id="login-status" class="login-link">
-        <!-- El estado de conexión se mostrará aquí -->
-    </div>
-
     <form action="/login" method="GET">
         <label for="username">Nombre de Usuario:</label>
-        <input type="text" id="username" name="username" required>
+        <input type="text" id="username" name="username" required><br><br>
+
         <label for="password">Contraseña:</label>
         <input type="password" id="password" name="password" required>
+        <button type="button" id="togglePassword">👁️</button><br><br> <!-- Botón con icono de ojo -->
+
         <button type="submit">Iniciar Sesión</button>
     </form>
 
     <!-- Enlace para regresar a la página principal -->
-    <a href="index.html">Regresar a la página principal</a>
+    <a href="index.html">
+        <button>Página Principal</button>
+    </a>
 </body>
 </html>
+

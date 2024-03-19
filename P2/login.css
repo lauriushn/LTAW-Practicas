@@ -1,0 +1,22 @@
+.boton {
+    display: inline-block; /* Mostrar como bloque en línea */
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    text-decoration: none; /* Sin decoración de texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor al pasar sobre el botón */
+    margin-top: 20px; /* Espaciado superior */
+}
+
+.boton:hover {
+    background-color: #45a049; /* Cambio de color de fondo al pasar el cursor */
+}
+
+#togglePassword {
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    font-size: 20px; /* Tamaño de fuente */
+    cursor: pointer; /* Cursor al pasar sobre el botón */
+}
