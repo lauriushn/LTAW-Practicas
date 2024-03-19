@@ -1,22 +1,84 @@
-.boton {
-    display: inline-block; /* Mostrar como bloque en línea */
-    background-color: #4CAF50; /* Color de fondo */
-    color: white; /* Color del texto */
-    padding: 10px 20px; /* Espaciado interno */
-    text-decoration: none; /* Sin decoración de texto */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cursor al pasar sobre el botón */
-    margin-top: 20px; /* Espaciado superior */
+/* Estilo para el cuerpo del formulario */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    text-align: center;
 }
 
-.boton:hover {
-    background-color: #45a049; /* Cambio de color de fondo al pasar el cursor */
+/* Estilo para el título */
+h2 {
+    color: #333;
 }
 
+/* Estilo para el contenedor del formulario */
+form {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* Estilo para las etiquetas del formulario */
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+/* Estilo para los campos de entrada */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+}
+
+/* Estilo para el botón de mostrar/ocultar contraseña */
 #togglePassword {
-    background: none; /* Sin fondo */
-    border: none; /* Sin borde */
-    font-size: 20px; /* Tamaño de fuente */
-    cursor: pointer; /* Cursor al pasar sobre el botón */
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
 }
+
+/* Estilo para el botón de inicio de sesión */
+button[type="submit"] {
+    background-color: #ff6b6b;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Estilo para el botón de página principal */
+.volver {
+    background-color: #bebebe; 
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    padding: 7px 15px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 20px; 
+}
+
+/* Cambiar el color del botón de página principal cuando se hace hover */
+button[type="submit"]:hover,
+.volver:hover {
+    opacity: 0.8;
+}
+
