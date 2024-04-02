@@ -1,3 +1,17 @@
+// -- Función para cargar la información del JSON
+document.addEventListener("DOMContentLoaded", function() {
+    fetch("tienda.json")
+        .then(response => response.json())
+        .then(data => {
+            // Actualizar el nombre de los productos
+            document.getElementById("name_producto1").textContent = data.productos[0].nombre;
+            document.getElementById("name_producto2").textContent = data.productos[1].nombre;
+            document.getElementById("name_producto3").textContent = data.productos[2].nombre;
+        })
+        .catch(error => console.error("Error al cargar el archivo JSON:", error));
+});
+
+
 // Función para abrir la ventana de inicio de sesión
 function openLoginWindow() {
     // Abre una nueva ventana con el formulario de inicio de sesión

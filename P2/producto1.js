@@ -21,6 +21,29 @@ imagenes.forEach((imagen) => {
     });
 });
 
+//-- Función para coger informacion del JSON
+document.addEventListener("DOMContentLoaded", function() {
+  fetch("tienda.json")
+      .then(response => response.json())
+      .then(data => {
+          // Busca el producto en el archivo JSON por su nombre
+          const producto = data.productos.find(producto => producto.nombre === "Nike Shox");
+          
+          // Actualiza el nombre del producto
+          document.getElementById("name_producto").textContent = producto.nombre;
+
+          // Actualiza la descripción del producto
+          document.getElementById("descripcion_producto").textContent = producto.descripcion;
+
+          // Actualiza el precio del producto
+          document.getElementById("precio_producto").textContent = producto.precio;
+      })
+      .catch(error => console.error("Error al cargar el archivo JSON:", error));
+});
+
+
+
+
 //-- CARRITO DE LA COMPRA
 
 // Obtenemos el botón del carrito
@@ -35,3 +58,16 @@ botonCarrito.addEventListener("click", function() {
     this.style.transform = "scale(1)";
   }, 1000);
 });
+
+
+//-- AÑADIR AL CARRITO
+function addToCart() {
+  fetch('/addToCart', { method: 'POST' })
+  .then(response => response.json())
+  .then(data => {
+      alert(data.message);
+  })
+  .catch(error => {
+      console.error('Error:', error);
+  });
+}

@@ -7,8 +7,6 @@ const fs = require('fs');
 const PUERTO = 9090;
 const tienda = "index.html";
 const pag_error = "error.html";
-const fichero_json = fs.readFileSync('tienda.json');
-const tienda_json = JSON.parse(fichero_json);
 
 const pag_404 = fs.readFileSync(pag_error);
 
@@ -69,6 +67,9 @@ const server = http.createServer((req, res) => {
             console.log("Nombre usuario:", username);
             console.log("Contraseña:", password);
 
+            const fichero_json = fs.readFileSync('tienda.json');
+            const tienda_json = JSON.parse(fichero_json);
+
             const userExists = tienda_json.usuarios.find(user => user.nombre_usuario === username && user.password === password);
             if (userExists) {
                 res.setHeader('Set-Cookie', `user=${username}`);
@@ -82,6 +83,19 @@ const server = http.createServer((req, res) => {
                 res.write('<a href="/login.html">Volver a intentarlo</a>'); // Agregar enlace de regreso
                 res.end();
             }
+        }
+    } else if (url.pathname == '/addToCart' && req.method == 'POST') {
+        // Manejar solicitud para añadir al carrito
+        let user = get_user(req);
+        if (user) {
+            res.setHeader('Set-Cookie', `cart=${url.pathname}`, { 'httpOnly': true });
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.write(JSON.stringify({ message: 'Producto añadido al carrito.' }));
+            res.end();
+        } else {
+            res.writeHead(401, { 'Content-Type': 'application/json' });
+            res.write(JSON.stringify({ message: 'Inicie sesión para agregar productos al carrito.' }));
+            res.end();
         }
     } else if (url.pathname.endsWith('.css')) {
         recursos += url.pathname.substring(1);
