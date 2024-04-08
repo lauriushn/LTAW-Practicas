@@ -10,7 +10,7 @@ padding: 0;
 }
 
 h1 {
-  margin-top: 50px;
+  margin-top: 40px;
   text-align: center;
   font-size: 80px;
   background-color: rgb(228, 228, 228);;
@@ -31,9 +31,9 @@ select {
 }
 
 button {
-  margin-top: 5px;
-  padding: 15px 20px; /* Aumentamos el padding para que sea más grande */
-  font-size: 20px; /* Aumentamos el tamaño del texto */
+  margin-top: 3px;
+  padding: 10px 15px; /* Aumentamos el padding para que sea más grande */
+  font-size: 15px; /* Aumentamos el tamaño del texto */
   border-radius: 10px; /* Aumentamos el radio de borde para que sea más redondeado */
   background-color: rgb(82, 82, 82); /* Cambiamos el color de fondo para que sea más llamativo */
   color: white; /* Cambiamos el color del texto a blanco para que sea más legible */
@@ -45,6 +45,20 @@ button {
 /* Estilos para el botón "Página Principal" al pasar el mouse sobre él */
 button:hover {
   background-color: #ff4c4c; /* Cambiamos el color de fondo al pasar el mouse sobre él */
+}
+
+
+footer {
+  background-color: #333; 
+  color: white; 
+  font-weight: bold; 
+  font-size: x-small;
+  text-align: center; 
+  padding: 10px; 
+  width: 100%; 
+  position: fixed; /* Fijar posición */
+  bottom: 0; /* Colocar al final de la ventana */
+  left: 0; /* Alinear a la izquierda */
 }
 
 #agregarcarrito {
@@ -84,7 +98,7 @@ button:hover {
   text-align: center;
   margin: 20px auto;
   max-width: 600px;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
@@ -94,8 +108,8 @@ button:hover {
   border: 2px solid #eb0000;
   border-radius: 10px;
   text-align: center;
-  font-size: 24px;
-  margin: 20px 0;
+  font-size: 18px;
+  margin: 15px 0;
   color: #000000; 
   font-weight: bold;
 }
