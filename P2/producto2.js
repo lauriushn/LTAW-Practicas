@@ -40,3 +40,18 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => console.error("Error al cargar el archivo JSON:", error));
   });
+
+//-- CARRITO DE LA COMPRA
+
+// Obtenemos el botón del carrito
+var botonCarrito = document.getElementById("agregarcarrito");
+
+// Agregamos un evento de clic al botón del carrito
+botonCarrito.addEventListener("click", function() {
+  // Hacemos el botón un poco más grande durante un segundo
+  this.style.transform = "scale(1.2)";
+  // Restauramos el tamaño original después de un segundo
+  setTimeout(() => {
+    this.style.transform = "scale(1)";
+  }, 1000);
+});

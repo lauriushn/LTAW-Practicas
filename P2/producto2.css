@@ -47,6 +47,22 @@ button:hover {
   background-color: #ff4c4c; /* Cambiamos el color de fondo al pasar el mouse sobre él */
 }
 
+#agregarcarrito {
+  background-color: #ff8686;
+  color: #000000;
+  font-size: 30px;
+  margin-left: 10px;
+  transition: transform 0.2s ease; /* Agregamos una transición suave al cambio de color de fondo */
+}
+
+#agregarcarrito:hover {
+  background-color: #e2bfff; /* Cambiamos el color de fondo al pasar el mouse sobre él */
+}
+
+#agregarcarrito:active {
+  transform: scale(1.2); /* Aumentamos ligeramente la escala cuando se hace clic */
+}
+
 
 .tallas {
   margin-top: 50px;
