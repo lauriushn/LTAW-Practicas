@@ -7,6 +7,7 @@ const fs = require('fs');
 const PUERTO = 9090;
 const tienda = "index.html";
 const pag_error = "error.html";
+const tienda_json = JSON.parse(fs.readFileSync('tienda.json'));
 
 const pag_404 = fs.readFileSync(pag_error);
 
@@ -112,6 +113,13 @@ const server = http.createServer((req, res) => {
                 res.end();
             }
         });
+    } else if (url.pathname == '/search') {
+        const query = url.searchParams.get('query');
+        const results = tienda_json.productos.filter(product =>
+            product.nombre.toLowerCase().includes(query.toLowerCase())
+        );
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(results));
     } else {
         recursos += url.pathname.substring(1);
         console.log("Recurso-producto: " + recursos);

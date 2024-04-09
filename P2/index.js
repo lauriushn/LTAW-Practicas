@@ -37,3 +37,58 @@ function logout() {
     document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; // Elimina la cookie de usuario
     document.querySelector('h3').textContent = ''; // Actualiza el mensaje de conexión
 }
+
+//-- PETICIONES AJAX
+document.addEventListener("DOMContentLoaded", function() {
+    // Cargar la información del JSON como lo estabas haciendo antes
+
+    const searchInput = document.getElementById('search-input');
+
+    // Manejar evento keyup en el campo de búsqueda
+    searchInput.addEventListener('keyup', function(event) {
+        const searchTerm = event.target.value.trim(); // Obtener el término de búsqueda
+
+        if (searchTerm === '') {
+            clearSearchResults(); // Limpiar los resultados si la barra de búsqueda está vacía
+            return;
+        }
+
+        // Realizar una solicitud AJAX al servidor para buscar productos
+        fetch(`/search?query=${encodeURIComponent(searchTerm)}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al buscar productos');
+                }
+                return response.json();
+            })
+            .then(data => {
+                displaySearchResults(data); // Mostrar los resultados de búsqueda
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
+});
+
+function clearSearchResults() {
+    const searchResultsDiv = document.getElementById('search-results');
+    searchResultsDiv.innerHTML = ''; // Limpiar los resultados de búsqueda
+}
+
+function displaySearchResults(products) {
+    const searchResultsDiv = document.getElementById('search-results');
+    searchResultsDiv.innerHTML = ''; // Limpiar resultados anteriores
+
+    if (products.length === 0) {
+        searchResultsDiv.innerHTML = 'No se encontraron productos.';
+        return;
+    }
+
+    const ul = document.createElement('ul');
+    products.forEach(product => {
+        const li = document.createElement('li');
+        li.textContent = product.nombre;
+        ul.appendChild(li);
+    });
+    searchResultsDiv.appendChild(ul);
+}
