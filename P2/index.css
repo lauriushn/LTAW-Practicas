@@ -25,9 +25,14 @@ h1 {
     color: black;
 }
 
+h3 {
+    text-align: center;
+    font-size: medium;
+}
+
 footer {
     background-color: #333; 
-    color: white; 
+    color: rgb(255, 255, 255); 
     font-weight: bold; 
     font-size: x-small;
     text-align: center; 
@@ -38,6 +43,36 @@ footer {
     left: 0; /* Alinear a la izquierda */
 }
 
+/* Estilos para la barra de búsqueda */
+.search-container {
+    margin-top: 20px; /* Espacio superior */
+    text-align: center; /* Centra el contenido */
+    font-size: medium;
+}
+
+#search-input {
+    font-size: medium;
+    padding: 10px; /* Añade espaciado interno */
+    width: 300px; /* Ancho de la barra de búsqueda */
+    margin-right: 10px; /* Margen derecho para separar del botón de búsqueda */
+}
+
+#search-results {
+    text-align: center; /* Alinea los resultados a la izquierda */
+    margin-top: 10px; /* Espacio superior */
+    max-width: 600px; /* Ancho máximo de los resultados */
+    margin-left: auto; /* Centra los resultados horizontalmente */
+    margin-right: auto; /* Centra los resultados horizontalmente */
+}
+
+#search-results ul {
+    list-style-type: none; /* Quita los puntos de la lista */
+    padding: 0; /* Quita el espacio interno de la lista */
+}
+
+#search-results li {
+    padding: 5px 0; /* Espaciado interno */
+}
 
 
 .productos {
@@ -68,6 +103,12 @@ footer {
     color: black;
     padding: 10px;
     margin: 0;
+}
+
+.login-message {
+    display: none; /* Inicialmente oculto */
+    text-align: center;
+    margin-top: 20px;
 }
 
 

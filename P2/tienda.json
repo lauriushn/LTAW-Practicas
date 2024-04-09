@@ -1,45 +1,47 @@
 {
-    "usuarios": [
-      {
-        "nombre_usuario": "Root",  
-        "password": "root",
-        "nombre_real": "Laura Hernández",
-        "correo": "l.hernandez@gmail.com"
-      },
-      {
-        "nombre_usuario": "marthius",
-        "password": "marta",
-        "nombre_real": "Marta Garrido",
-        "correo": "m.garrido@gmail.com"
-      }
-    ],
-    "productos": [
-      {
-        "nombre": "Nike Shox",
-        "descripcion": "Regresan las Nike Shox lanzadas en 2003 pero con una versión renovada, disponen de una malla transpirable y la tecnología Nike Shox para ofrecer una absorción de impactos y una mediasuela de espuma que hace que este modelo sea más ligero que el original.",
-        "precio": "149.50€",
-        "stock": 30
-      },
-      {
-        "nombre": "Adidas Superstar",
-        "descripcion": "Las adidas Superstar, ya sean negras, blancas o de cualquier otro color, se han convertido en todo un icono. Su amplia variedad de modelos y combinaciones de colores las convierte en unas zapatillas ideales.",
-        "precio": "120€",
-        "stock": 26
-      }, 
-      {
-        "nombre": "Puma 180",
-        "descripcion": "Las PUMA-180 evocan a los modelos de la cultura skater de finales de los años 90. En este modelo se combina el skate y la alta costura en una atrevida colección para personas únicas. El acolchado extragrande, las formas gruesas y los  exteriores técnicos rememoran aquella época.",
-        "precio": "110€",
-        "stock": 82
-      }
-    ],
-    "pedidos": [
-      {
-        "nombre_usuario": "marthius",
-        "direccion_envio": "Calle Los Ciervo, 48",
-        "numero_tarjeta": "1234 5678 9012 3456",
-        "productos": ["Puma 180"]
-      }
-    ]
-  }
-  
+  "usuarios": [
+    {
+      "nombre_usuario": "Root",  
+      "password": "root",
+      "nombre_real": "Laura Hernández",
+      "correo": "l.hernandez@gmail.com"
+    },
+    {
+      "nombre_usuario": "marthius",
+      "password": "marta",
+      "nombre_real": "Marta Garrido",
+      "correo": "m.garrido@gmail.com"
+    }
+  ],
+  "productos": [
+    {
+      "nombre": "Nike Shox",
+      "descripcion": "Regresan las Nike Shox lanzadas en 2003 pero con una versión renovada, disponen de una malla transpirable y la tecnología Nike Shox para ofrecer una absorción de impactos y una mediasuela de espuma que hace que este modelo sea más ligero que el original.",
+      "precio": "149.50€",
+      "stock": 30,
+      "url": "producto1.html"
+    },
+    {
+      "nombre": "Adidas Superstar",
+      "descripcion": "Las adidas Superstar, ya sean negras, blancas o de cualquier otro color, se han convertido en todo un icono. Su amplia variedad de modelos y combinaciones de colores las convierte en unas zapatillas ideales.",
+      "precio": "120€",
+      "stock": 26,
+      "url": "producto2.html"
+    }, 
+    {
+      "nombre": "Puma 180",
+      "descripcion": "Las PUMA-180 evocan a los modelos de la cultura skater de finales de los años 90. En este modelo se combina el skate y la alta costura en una atrevida colección para personas únicas. El acolchado extragrande, las formas gruesas y los  exteriores técnicos rememoran aquella época.",
+      "precio": "110€",
+      "stock": 82,
+      "url": "producto3.html"
+    }
+  ],
+  "pedidos": [
+    {
+      "nombre_usuario": "marthius",
+      "direccion_envio": "Calle Los Ciervo, 48",
+      "numero_tarjeta": "1234 5678 9012 3456",
+      "productos": ["Puma 180"]
+    }
+  ]
+}

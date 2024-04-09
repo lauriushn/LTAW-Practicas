@@ -88,6 +88,16 @@ function displaySearchResults(products) {
     products.forEach(product => {
         const li = document.createElement('li');
         li.textContent = product.nombre;
+        li.dataset.productUrl = product.url; // Agrega el URL del producto como atributo de datos
+        li.addEventListener('click', function() {
+            window.location.href = this.dataset.productUrl; // Redirecciona al URL del producto al hacer clic en el resultado
+        });
+        li.addEventListener('mouseover', function() {
+            this.style.backgroundColor = '#a0a0a0'; // Cambia el color de fondo al pasar el cursor sobre el resultado
+        });
+        li.addEventListener('mouseout', function() {
+            this.style.backgroundColor = 'transparent'; // Restaura el color de fondo al quitar el cursor del resultado
+        });
         ul.appendChild(li);
     });
     searchResultsDiv.appendChild(ul);
