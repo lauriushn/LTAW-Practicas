@@ -32,9 +32,9 @@ select {
 }
 
 button {
-  margin-top: 5px;
-  padding: 15px 20px; /* Aumentamos el padding para que sea más grande */
-  font-size: 20px; /* Aumentamos el tamaño del texto */
+  margin-top: 3px;
+  padding: 10px 15px; /* Aumentamos el padding para que sea más grande */
+  font-size: 15px; /* Aumentamos el tamaño del texto */
   border-radius: 10px; /* Aumentamos el radio de borde para que sea más redondeado */
   background-color: rgb(82, 82, 82); /* Cambiamos el color de fondo para que sea más llamativo */
   color: white; /* Cambiamos el color del texto a blanco para que sea más legible */
@@ -66,7 +66,7 @@ button:hover {
   text-align: center;
   margin: 20px auto;
   max-width: 600px;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
@@ -76,8 +76,8 @@ button:hover {
   border: 2px solid #eb0000;
   border-radius: 10px;
   text-align: center;
-  font-size: 24px;
-  margin: 20px 0;
+  font-size: 18px;
+  margin: 15px 0;
   color: #000000; 
   font-weight: bold;
 }
