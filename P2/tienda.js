@@ -29,9 +29,6 @@ function get_user(req) {
 const server = http.createServer((req, res) => {
     console.log("Petición recibida!");
 
-    // Configurar la cookie inicialmente vacía
-    res.setHeader('Set-Cookie', 'user=');
-
     let url = new URL(req.url, 'http://' + req.headers['host']);
     console.log("La URL del recurso es: " + url.href);
     console.log(" *Ruta: " + url.pathname);
@@ -73,7 +70,7 @@ const server = http.createServer((req, res) => {
 
             const userExists = tienda_json.usuarios.find(user => user.nombre_usuario === username && user.password === password);
             if (userExists) {
-                res.setHeader('Set-Cookie', `user=${username}`);
+                res.setHeader('Set-Cookie', `user=${username}; Path=/`);
                 res.writeHead(200, { 'Content-Type': 'text/html' });
                 res.write('<h1>Bienvenido ' + username + '</h1>');
                 res.write('<a href="/">Pagina Principal</a>'); // Agregar enlace de regreso
