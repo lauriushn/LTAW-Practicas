@@ -84,16 +84,32 @@ const server = http.createServer((req, res) => {
         }
     } else if (url.pathname == '/addToCart' && req.method == 'POST') {
         // Manejar solicitud para añadir al carrito
-        let user = get_user(req);
+        let user = get_user(req); // Obtener el usuario de la cookie
         if (user) {
-            res.setHeader('Set-Cookie', `cart=${url.pathname}`, { 'httpOnly': true });
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.write(JSON.stringify({ message: 'Producto añadido al carrito.' }));
-            res.end();
+            // Actualizar la cookie del carrito (aquí debes implementar la lógica para agregar el producto al carrito)
+            // Por ahora, simplemente estableceremos una cookie de carrito vacía como ejemplo
+            res.setHeader('Set-Cookie', `cart=${url.pathname}`); // Establecer la cookie del carrito
+            res.writeHead(200, { 'Content-Type': 'application/json' }); // Establecer el tipo de contenido de la respuesta
+            res.write(JSON.stringify({ message: 'Producto añadido al carrito.' })); // Enviar un mensaje de respuesta
+            res.end(); // Finalizar la respuesta
         } else {
-            res.writeHead(401, { 'Content-Type': 'application/json' });
-            res.write(JSON.stringify({ message: 'Inicie sesión para agregar productos al carrito.' }));
-            res.end();
+            res.writeHead(401, { 'Content-Type': 'application/json' }); // Establecer el código de estado 401 (No autorizado)
+            res.write(JSON.stringify({ message: 'Inicie sesión para agregar productos al carrito.' })); // Enviar un mensaje de error
+            res.end(); // Finalizar la respuesta
+        }
+    } else if (url.pathname == '/verCarrito' && req.method == 'GET') {
+        // Manejar solicitud para ver el contenido del carrito
+        let user = get_user(req); // Obtener el usuario de la cookie
+        if (user) {
+            // Aquí debes implementar la lógica para obtener y devolver el contenido del carrito del usuario
+            // Por ahora, simplemente enviaremos un mensaje de ejemplo
+            res.writeHead(200, { 'Content-Type': 'application/json' }); // Establecer el tipo de contenido de la respuesta
+            res.write(JSON.stringify({ message: 'Contenido del carrito: Producto 1, Producto 2, Producto 3' })); // Enviar un mensaje de respuesta
+            res.end(); // Finalizar la respuesta
+        } else {
+            res.writeHead(401, { 'Content-Type': 'application/json' }); // Establecer el código de estado 401 (No autorizado)
+            res.write(JSON.stringify({ message: 'Inicie sesión para ver el contenido del carrito.' })); // Enviar un mensaje de error
+            res.end(); // Finalizar la respuesta
         }
     } else if (url.pathname.endsWith('.css')) {
         recursos += url.pathname.substring(1);

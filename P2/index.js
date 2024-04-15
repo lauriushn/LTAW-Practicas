@@ -1,5 +1,5 @@
-// -- Función para cargar la información del JSON
 document.addEventListener("DOMContentLoaded", function() {
+    // Función para cargar la información del JSON
     fetch("tienda.json")
         .then(response => response.json())
         .then(data => {
@@ -9,8 +9,27 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("name_producto3").textContent = data.productos[2].nombre;
         })
         .catch(error => console.error("Error al cargar el archivo JSON:", error));
+    
+    // Obtener el botón para ver el carrito
+    const verCarritoBtn = document.getElementById("vercarrito");
+
+    // Agregar un evento de clic al botón para ver el carrito
+    verCarritoBtn.addEventListener("click", function() {
+        verCarrito(); // Llama a la función verCarrito() al hacer clic en el botón
+    });
 });
 
+// Función para ver el contenido del carrito
+function verCarrito() {
+    fetch('/verCarrito') // Realiza una solicitud GET al servidor para ver el contenido del carrito
+        .then(response => response.json()) // Parsea la respuesta JSON del servidor
+        .then(data => {
+            alert(data.message); // Muestra el contenido del carrito en un mensaje de alerta
+        })
+        .catch(error => {
+            console.error('Error:', error); // Muestra cualquier error que ocurra
+        });
+}
 
 // Función para abrir la ventana de inicio de sesión
 function openLoginWindow() {
@@ -38,7 +57,7 @@ function logout() {
     document.querySelector('h3').textContent = ''; // Actualiza el mensaje de conexión
 }
 
-//-- PETICIONES AJAX
+// PETICIONES AJAX
 document.addEventListener("DOMContentLoaded", function() {
     // Cargar la información del JSON como lo estabas haciendo antes
 
