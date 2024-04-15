@@ -156,8 +156,14 @@ button:hover {
 
 
 /* Estilos para el botón del carrito */
-.carrito-btn {
+.ver-btn {
     background-color: #b98eff; /* Morado claro */
     margin-left: 50px; /* Espacio entre los botones */
-    color: #333;
+    color: #000;
+}
+
+.eliminar-btn {
+    background-color: #decaff; /* Morado claro */
+    margin-left: 5px; /* Espacio entre los botones */
+    color: #000;
 }
