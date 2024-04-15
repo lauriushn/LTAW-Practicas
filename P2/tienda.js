@@ -98,18 +98,25 @@ const server = http.createServer((req, res) => {
             res.end(); // Finalizar la respuesta
         }
     } else if (url.pathname == '/verCarrito' && req.method == 'GET') {
-        // Manejar solicitud para ver el contenido del carrito
         let user = get_user(req); // Obtener el usuario de la cookie
         if (user) {
-            // Aquí debes implementar la lógica para obtener y devolver el contenido del carrito del usuario
-            // Por ahora, simplemente enviaremos un mensaje de ejemplo
-            res.writeHead(200, { 'Content-Type': 'application/json' }); // Establecer el tipo de contenido de la respuesta
-            res.write(JSON.stringify({ message: 'Contenido del carrito: Producto 1, Producto 2, Producto 3' })); // Enviar un mensaje de respuesta
-            res.end(); // Finalizar la respuesta
+            let carrito_usuario = tienda_json.pedidos.find(pedido => pedido.nombre_usuario === user);
+            if (carrito_usuario) {
+                let productos_en_carrito = carrito_usuario.productos.map(producto => {
+                    return tienda_json.productos.find(p => p.nombre === producto).nombre;
+                });
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.write(JSON.stringify({ productos: productos_en_carrito }));
+                res.end();
+            } else {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.write(JSON.stringify({ message: 'El carrito está vacío' }));
+                res.end();
+            }
         } else {
-            res.writeHead(401, { 'Content-Type': 'application/json' }); // Establecer el código de estado 401 (No autorizado)
-            res.write(JSON.stringify({ message: 'Inicie sesión para ver el contenido del carrito.' })); // Enviar un mensaje de error
-            res.end(); // Finalizar la respuesta
+            res.writeHead(401, { 'Content-Type': 'application/json' });
+            res.write(JSON.stringify({ message: 'Inicie sesión para ver el contenido del carrito.' }));
+            res.end();
         }
     } else if (url.pathname.endsWith('.css')) {
         recursos += url.pathname.substring(1);
