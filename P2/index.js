@@ -1,5 +1,5 @@
+// -- Función para cargar la información del JSON
 document.addEventListener("DOMContentLoaded", function() {
-    // Función para cargar la información del JSON
     fetch("tienda.json")
         .then(response => response.json())
         .then(data => {
@@ -21,13 +21,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Función para ver el contenido del carrito
 function verCarrito() {
-    fetch('/verCarrito') // Realiza una solicitud GET al servidor para ver el contenido del carrito
-        .then(response => response.json()) // Parsea la respuesta JSON del servidor
+    fetch('/verCarrito') // Hacer una solicitud para obtener el contenido del carrito
+        .then(response => response.json())
         .then(data => {
-            alert(data.message); // Muestra el contenido del carrito en un mensaje de alerta
+            if (data.productos) {
+                const nombresProductos = data.productos.join(', '); // Concatenar los nombres de los productos
+                alert('Contenido del carrito: ' + nombresProductos); // Mostrar los nombres de los productos en un mensaje de alerta
+            } else {
+                alert(data.message); // Mostrar mensaje de carrito vacío o de inicio de sesión
+            }
         })
         .catch(error => {
-            console.error('Error:', error); // Muestra cualquier error que ocurra
+            console.error('Error:', error);
         });
 }
 
@@ -57,7 +62,7 @@ function logout() {
     document.querySelector('h3').textContent = ''; // Actualiza el mensaje de conexión
 }
 
-// PETICIONES AJAX
+//-- PETICIONES AJAX
 document.addEventListener("DOMContentLoaded", function() {
     // Cargar la información del JSON como lo estabas haciendo antes
 

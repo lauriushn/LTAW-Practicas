@@ -154,3 +154,10 @@ button:hover {
     opacity: 0.8;
 }
 
+
+/* Estilos para el botón del carrito */
+.carrito-btn {
+    background-color: #b98eff; /* Morado claro */
+    margin-left: 50px; /* Espacio entre los botones */
+    color: #333;
+}

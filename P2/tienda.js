@@ -4,7 +4,7 @@
 const http = require('http');
 const fs = require('fs');
 
-const PUERTO = 9090;
+const PUERTO = 9092;
 const tienda = "index.html";
 const pag_error = "error.html";
 const tienda_json = JSON.parse(fs.readFileSync('tienda.json'));
