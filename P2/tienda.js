@@ -83,20 +83,29 @@ const server = http.createServer((req, res) => {
             }
         }
     } else if (url.pathname == '/addToCart' && req.method == 'POST') {
-        // Manejar solicitud para añadir al carrito
-        let user = get_user(req); // Obtener el usuario de la cookie
-        if (user) {
-            // Actualizar la cookie del carrito (aquí debes implementar la lógica para agregar el producto al carrito)
-            // Por ahora, simplemente estableceremos una cookie de carrito vacía como ejemplo
-            res.setHeader('Set-Cookie', `cart=${url.pathname}`); // Establecer la cookie del carrito
-            res.writeHead(200, { 'Content-Type': 'application/json' }); // Establecer el tipo de contenido de la respuesta
-            res.write(JSON.stringify({ message: 'Producto añadido al carrito.' })); // Enviar un mensaje de respuesta
-            res.end(); // Finalizar la respuesta
-        } else {
-            res.writeHead(401, { 'Content-Type': 'application/json' }); // Establecer el código de estado 401 (No autorizado)
-            res.write(JSON.stringify({ message: 'Inicie sesión para agregar productos al carrito.' })); // Enviar un mensaje de error
-            res.end(); // Finalizar la respuesta
-        }
+        let body = '';
+        req.on('data', chunk => {
+            body += chunk.toString(); // Lee los datos de la solicitud
+        });
+        req.on('end', () => {
+            const data = JSON.parse(body); // Parsea los datos JSON
+            let user = get_user(req); // Obtener el usuario de la cookie
+            if (user) {
+                let carrito_usuario = tienda_json.pedidos.find(pedido => pedido.nombre_usuario === user);
+                if (carrito_usuario) {
+                    carrito_usuario.productos.push(data.producto); // Agrega el producto al carrito del usuario
+                } else {
+                    tienda_json.pedidos.push({ nombre_usuario: user, productos: [data.producto] }); // Crea un nuevo carrito para el usuario
+                }
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.write(JSON.stringify({ message: 'Producto agregado al carrito' }));
+                res.end();
+            } else {
+                res.writeHead(401, { 'Content-Type': 'application/json' });
+                res.write(JSON.stringify({ message: 'Inicie sesión para agregar productos al carrito.' }));
+                res.end();
+            }
+        });
     } else if (url.pathname == '/verCarrito' && req.method == 'GET') {
         let user = get_user(req); // Obtener el usuario de la cookie
         if (user) {
@@ -116,6 +125,25 @@ const server = http.createServer((req, res) => {
         } else {
             res.writeHead(401, { 'Content-Type': 'application/json' });
             res.write(JSON.stringify({ message: 'Inicie sesión para ver el contenido del carrito.' }));
+            res.end();
+        }
+    } else if (url.pathname == '/eliminarCarrito' && req.method == 'DELETE') {
+        let user = get_user(req); // Obtiene el usuario de la cookie
+        if (user) {
+            let carrito_usuario = tienda_json.pedidos.find(pedido => pedido.nombre_usuario === user);
+            if (carrito_usuario) {
+                carrito_usuario.productos = []; // Elimina todos los productos del carrito del usuario
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.write(JSON.stringify({ message: 'Carrito eliminado con éxito' }));
+                res.end();
+            } else {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.write(JSON.stringify({ message: 'El carrito está vacío' }));
+                res.end();
+            }
+        } else {
+            res.writeHead(401, { 'Content-Type': 'application/json' });
+            res.write(JSON.stringify({ message: 'Inicie sesión para eliminar el carrito' }));
             res.end();
         }
     } else if (url.pathname.endsWith('.css')) {

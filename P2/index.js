@@ -17,8 +17,23 @@ document.addEventListener("DOMContentLoaded", function() {
     verCarritoBtn.addEventListener("click", function() {
         verCarrito(); // Llama a la función verCarrito() al hacer clic en el botón
     });
+    const eliminarCarritoBtn = document.getElementById("eliminarcarrito");
+
+    eliminarCarritoBtn.addEventListener("click", function() {
+        eliminarCarrito();
+    });
 });
 
+function eliminarCarrito() {
+    fetch('/eliminarCarrito', { method: 'DELETE' }) // Realiza una solicitud DELETE para eliminar el carrito
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message); // Muestra un mensaje de alerta con la respuesta del servidor
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
 // Función para ver el contenido del carrito
 function verCarrito() {
     fetch('/verCarrito') // Hacer una solicitud para obtener el contenido del carrito

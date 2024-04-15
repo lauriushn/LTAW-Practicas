@@ -51,12 +51,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Función para agregar el producto al carrito
 function addToCart() {
-    fetch('/addToCart', { method: 'POST' }) // Envía una solicitud POST al servidor
-        .then(response => response.json()) // Parsea la respuesta JSON del servidor
-        .then(data => {
-            alert(data.message); // Muestra un mensaje de respuesta del servidor
-        })
-        .catch(error => {
-            console.error('Error:', error); // Muestra cualquier error que ocurra
-        });
+    fetch('/addToCart', { 
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ producto: document.getElementById("name_producto").textContent }) // Envía el nombre del producto al servidor en el cuerpo de la solicitud
+    }) 
+    .then(response => response.json()) // Parsea la respuesta JSON del servidor
+    .then(data => {
+        alert(data.message); // Muestra un mensaje de respuesta del servidor
+    })
+    .catch(error => {
+        console.error('Error:', error); // Muestra cualquier error que ocurra
+    });
 }
