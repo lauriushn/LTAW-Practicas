@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h2 {
+    font-family: 'Indie Flower', cursive; 
+    font-size: 50px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  #display {
+    min-height: 200px;
+    border: 1px solid #aaaaaa;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-y: auto;
+  }
