@@ -17,6 +17,7 @@ const io = socket(server);
 
 //-- Creamos constante para usuarios en línea
 let users_conected = 0;
+const users_name = {}
 
 //-------- PUNTOS DE ENTRADA DE LA APLICACIÓN WEB
 //-- Definir el punto de entrada principal de mi aplicación web
