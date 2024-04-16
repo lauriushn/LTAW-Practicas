@@ -29,7 +29,7 @@
       "url": "producto2.html"
     }, 
     {
-      "nombre": "Puma 180",
+      "nombre": "Puma-180",
       "descripcion": "Las PUMA-180 evocan a los modelos de la cultura skater de finales de los años 90. En este modelo se combina el skate y la alta costura en una atrevida colección para personas únicas. El acolchado extragrande, las formas gruesas y los  exteriores técnicos rememoran aquella época.",
       "precio": "110€",
       "stock": 82,
@@ -41,7 +41,7 @@
       "nombre_usuario": "marthius",
       "direccion_envio": "Calle Los Ciervo, 48",
       "numero_tarjeta": "1234 5678 9012 3456",
-      "productos": ["Puma 180"]
+      "productos": ["Puma-180"]
     }
   ]
 }
