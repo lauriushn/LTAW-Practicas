@@ -51,7 +51,6 @@ io.on('connect', (socket) => {
     //-- Enviar mensaje de bienvenida al nuevo usuario (verde)
     socket.emit('message', '<span style="color: green;">¡Bienvenido al chat!</span>');
 
-    
     //-- Evento de desconexión
     socket.on('disconnect', function () {
         console.log('** CONEXIÓN TERMINADA **'.red);
@@ -75,6 +74,18 @@ io.on('connect', (socket) => {
             //-- Si no es un comando especial, reenviarlo a todos los clientes conectados
             io.emit("message", `<strong>${nickname}:</strong> ${msg}`); // Enviar el mensaje con el apodo del usuario
         }
+    });
+
+    //-- Evento de recepción de "typing"
+    socket.on('typing', () => {
+        const nickname = users[socket.id] || 'Anónimo';
+        socket.broadcast.emit('typing', nickname);
+    });
+
+    //-- Evento de recepción de "stop typing"
+    socket.on('stop typing', () => {
+        const nickname = users[socket.id] || 'Anónimo';
+        socket.broadcast.emit('stop typing', nickname);
     });
 });
 
