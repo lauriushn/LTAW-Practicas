@@ -27,3 +27,17 @@ body {
     border-radius: 5px;
     overflow-y: auto;
   }
+
+  .chat-container {
+    display: flex;
+  }
+  
+  .user-list {
+    flex: 1;
+    padding-right: 10px;
+  }
+  
+  .chat {
+    flex: 3;
+  }
+  

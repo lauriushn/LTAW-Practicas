@@ -59,3 +59,15 @@ socket.on('stop typing', (nickname) => {
         }
     }
 });
+
+
+const userList = document.getElementById("user-list");
+
+socket.on('userList', (users) => {
+    userList.innerHTML = ''; // Limpiar la lista de usuarios antes de actualizarla
+    users.forEach(user => {
+        const li = document.createElement('li');
+        li.textContent = user;
+        userList.appendChild(li);
+    });
+});

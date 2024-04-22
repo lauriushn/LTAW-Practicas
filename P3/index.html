@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat en vivo</title>
+  <title>💬Chat en vivo💬</title>
 
   <!-- Cargar la biblioteca Socket.IO. Nos la debe entregar el servidor -->
   <script src="/socket.io/socket.io.js"></script>
@@ -20,8 +20,17 @@
 
 <body>
   <h2>Chateando entre Amigos</h2>
-  <input type="text" placeholder="Escribe aquí los mensajes..." autocomplete="off" id="msg_entry">
-  <h3>Mensajes recibidos</h3>
-  <p id="display"></p>
+  <div class="chat-container">
+    <div class="user-list">
+      <h3>Usuarios en línea</h3>
+      <ul id="user-list"></ul>
+    </div>
+    <div class="chat">
+      <input type="text" placeholder="Escribe aquí los mensajes..." autocomplete="off" id="msg_entry">
+      <h3>Mensajes recibidos</h3>
+      <p id="display"></p>
+    </div>
+  </div>
 </body>
+
 </html>

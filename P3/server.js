@@ -36,7 +36,6 @@ app.use(express.static('public'));
 //------------------- GESTIÓN DE SOCKETS IO
 //-- Evento: Nueva conexión recibida
 io.on('connect', (socket) => {
-
     console.log('** NUEVA CONEXIÓN **'.yellow);
 
     //-- Incrementar el contador de usuarios conectados
@@ -44,7 +43,8 @@ io.on('connect', (socket) => {
 
     //-- Evento de recepción del apodo del usuario
     socket.on('nickname', (nickname) => {
-        users[socket.id] = nickname; // Almacenar el apodo del usuario en el objeto users
+        users[socket.id] = nickname;
+        io.emit('userList', Object.values(users)); // Enviar la lista de usuarios a todos los clientes
         socket.broadcast.emit('message', `<span style="color: blue;">${nickname} se ha unido al chat.</span>`);
     });
 
@@ -58,7 +58,10 @@ io.on('connect', (socket) => {
         //-- Decrementar el contador de usuarios conectados
         users_conected--;
 
-        const nickname = users[socket.id] || 'Anónimo'; // Obtener el apodo del usuario o establecerlo como "Anónimo" si no tiene apodo
+        delete users[socket.id]; // Eliminar al usuario desconectado de la lista
+        io.emit('userList', Object.values(users)); // Actualizar la lista de usuarios en todos los clientes
+
+        const nickname = users[socket.id] || 'Anónimo';
         //-- Notificar a todos los clientes que alguien se ha desconectado (rojo)
         socket.broadcast.emit('message', `<span style="color: red;">${nickname} se ha desconectado del chat.</span>`);
     });
