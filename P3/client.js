@@ -67,7 +67,14 @@ socket.on('userList', (users) => {
     userList.innerHTML = ''; // Limpiar la lista de usuarios antes de actualizarla
     users.forEach(user => {
         const li = document.createElement('li');
-        li.textContent = user;
+        // Verificar si el usuario es el propio usuario y mostrar como "NICKNAME (Yo)"
+        if (user === nickname) {
+            li.textContent = user + ' (Tú)';
+            li.style.color = 'fuchsia'; // Aplicar el color rosa al propio usuario
+        } else {
+            li.textContent = user;
+        }
         userList.appendChild(li);
     });
 });
+

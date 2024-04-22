@@ -58,10 +58,10 @@ io.on('connect', (socket) => {
         //-- Decrementar el contador de usuarios conectados
         users_conected--;
 
+        const nickname = users[socket.id] || 'Anónimo'; // Obtener el apodo del usuario o establecerlo como "Anónimo" si no tiene apodo
         delete users[socket.id]; // Eliminar al usuario desconectado de la lista
         io.emit('userList', Object.values(users)); // Actualizar la lista de usuarios en todos los clientes
 
-        const nickname = users[socket.id] || 'Anónimo';
         //-- Notificar a todos los clientes que alguien se ha desconectado (rojo)
         socket.broadcast.emit('message', `<span style="color: red;">${nickname} se ha desconectado del chat.</span>`);
     });
