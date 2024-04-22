@@ -4,7 +4,7 @@ const http = require('http');
 const express = require('express');
 const colors = require('colors');
 
-const PUERTO = 9091;
+const PUERTO = 9090;
 
 //-- Crear una nueva aplicación web
 const app = express();
@@ -45,14 +45,14 @@ io.on('connect', (socket) => {
     //-- Evento de recepción del apodo del usuario
     socket.on('nickname', (nickname) => {
         users[socket.id] = nickname; // Almacenar el apodo del usuario en el objeto users
-        socket.broadcast.emit('message', `<span style="color: green;">${nickname} se ha unido al chat.</span>`);
+        socket.broadcast.emit('message', `<span style="color: blue;">${nickname} se ha unido al chat.</span>`);
     });
 
     //-- Enviar mensaje de bienvenida al nuevo usuario (verde)
     socket.emit('message', '<span style="color: green;">¡Bienvenido al chat!</span>');
 
     //-- Notificar a todos los clientes que alguien se ha conectado (azul)
-    socket.broadcast.emit('message', '<span style="color: blue;">¡Se ha unido un nuevo participante al chat!</span>');
+    //socket.broadcast.emit('message', '<span style="color: blue;">¡Se ha unido un nuevo participante al chat!</span>');
 
     //-- Evento de desconexión
     socket.on('disconnect', function () {
