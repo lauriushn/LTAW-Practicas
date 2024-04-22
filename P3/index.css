@@ -40,3 +40,29 @@ input[type="text"] {
 .chat {
   flex: 3;
 }
+
+footer {
+  background-color: #333; 
+  color: rgb(255, 255, 255); 
+  font-weight: bold; 
+  font-size: xx-small;
+  text-align: center; 
+  padding: 3px; 
+  width: 100%; 
+  position: fixed; /* Fijar posición */
+  bottom: 0; /* Colocar al final de la ventana */
+  left: 0; /* Alinear a la izquierda */
+  margin-top: 100px; /* Asegura que el contenido no se solape con el footer */
+}
+
+.user-list {
+  flex: 1;
+  padding-left: 5px;
+}
+
+.user-item {
+  border: 1px solid #aaaaaa;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+}

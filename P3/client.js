@@ -66,15 +66,17 @@ const userList = document.getElementById("user-list");
 socket.on('userList', (users) => {
     userList.innerHTML = ''; // Limpiar la lista de usuarios antes de actualizarla
     users.forEach(user => {
-        const li = document.createElement('li');
+        const div = document.createElement('div');
+        div.classList.add('user-item');
+        
         // Verificar si el usuario es el propio usuario y mostrar como "NICKNAME (Yo)"
         if (user === nickname) {
-            li.textContent = user + ' (Tú)';
-            li.style.color = 'fuchsia'; // Aplicar el color rosa al propio usuario
+            div.textContent = user + ' (Tú)';
+            div.style.color = 'fuchsia'; // Aplicar el color rosa al propio usuario
         } else {
-            li.textContent = user;
+            div.textContent = user;
         }
-        userList.appendChild(li);
+        userList.appendChild(div);
     });
 });
 
