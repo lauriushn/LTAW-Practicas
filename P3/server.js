@@ -51,6 +51,7 @@ io.on('connect', (socket) => {
     //-- Enviar mensaje de bienvenida al nuevo usuario (verde)
     socket.emit('message', '<span style="color: green;">¡Bienvenido al chat!</span>');
 
+
     //-- Evento de desconexión
     socket.on('disconnect', function () {
         console.log('** CONEXIÓN TERMINADA **'.red);
