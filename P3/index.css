@@ -9,11 +9,19 @@ h2 {
   font-size: 50px;
   margin-bottom: 10px;
   text-align: center;
+  padding: 5px 0;
+  box-shadow: 0 2px 4px rgb(134, 134, 134);
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin-top: 20px;
 }
 
 input[type="text"] {
   width: 100%;
   padding: 10px;
+  margin-top: 30px;
   margin-bottom: 10px;
   border: 1px solid #aaaaaa;
   border-radius: 5px;
@@ -30,15 +38,18 @@ input[type="text"] {
 
 .chat-container {
   display: flex;
+  align-items: flex-start; /* Alinea los elementos al inicio del eje transversal (vertical) */
 }
 
 .user-list {
   flex: 1;
   padding-right: 10px;
+  margin-top: 30px; /* Añade margen superior para alinear con el input */
 }
 
 .chat {
   flex: 3;
+  padding-left: 30px; /* Desplaza la parte de los mensajes hacia la derecha */
 }
 
 footer {
@@ -57,7 +68,8 @@ footer {
 
 .user-list {
   flex: 1;
-  padding-left: 5px;
+  padding-right: 10px; /* Aumenta el espacio entre la lista de usuarios y el borde derecho del contenedor */
+  padding-left: 20px; /* Agrega más espacio al lado izquierdo para separar la lista de usuarios del borde izquierdo del contenedor */
 }
 
 .user-item {
