@@ -80,3 +80,19 @@ socket.on('userList', (users) => {
     });
 });
 
+//-- Obtener referencia al elemento de audio
+const messageSound = document.getElementById("messageSound");
+
+//-- Al apretar el botón se envía un mensaje al servidor
+msg_entry.onchange = () => {
+    if (msg_entry.value) {
+        socket.send(msg_entry.value);
+        //-- Reproducir el sonido de mensaje enviado
+        messageSound.play();
+        //-- Resetear el estado de escribir al enviar el mensaje
+        typing = false;
+        socket.emit('stop typing');
+    }
+    //-- Borrar el mensaje actual
+    msg_entry.value = "";
+}
