@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
+
 }
 
 h2 {
@@ -29,12 +30,14 @@ input[type="text"] {
 }
 
 #display {
-  min-height: 200px;
+  height: 500px; /* Cambia este valor al tamaño deseado */
+  max-height: 500px; /* Establece la altura máxima para el desbordamiento */
+  overflow-y: auto; /* Añade una barra de desplazamiento vertical cuando sea necesario */
   border: 1px solid #aaaaaa;
   padding: 10px;
   border-radius: 5px;
-  overflow-y: auto;
 }
+
 
 .chat-container {
   display: flex;
