@@ -97,3 +97,13 @@ msg_entry.onchange = () => {
     msg_entry.value = "";
 }
 
+// Agregar un evento de clic a los elementos de la lista de usuarios
+userList.addEventListener('click', (event) => {
+    if (event.target && event.target.nodeName === 'DIV') {
+        const recipient = event.target.textContent.trim();
+        const message = prompt(`Mensaje directo para ${recipient}:`);
+        if (message.trim() !== '') {
+            socket.emit('direct message', { recipient, message });
+        }
+    }
+});

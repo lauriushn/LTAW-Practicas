@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💬Chat en vivo💬</title>
+
+  <!-- Cargar la biblioteca Socket.IO. Nos la debe entregar el servidor -->
+  <script src="/socket.io/socket.io.js"></script>
+
+  <!-- Cliente que usa los Sockets.io-->
+  <script src="client.js" defer></script>
+
+  <!-- Hoja de estilo -->
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap">
+
+</head>
+
+<body>
+  <h2>Chateando entre Amigos</h2>
+  <div class="chat-container">
+    <div class="user-list">
+      <h3>Usuarios en línea</h3>
+      <ul id="user-list"></ul>
+    </div>
+    <div class="chat">
+      <input type="text" placeholder="Escribe aquí los mensajes..." autocomplete="off" id="msg_entry">
+      <h3>Mensajes recibidos</h3>
+      <p id="display"></p>
+    </div>
+  </div>
+
+  <!-- Elemento de audio para reproducir el sonido -->
+  <audio id="messageSound" volume="0.7">
+    <source src="P3_sonido.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <footer>
+    <p>© 2024 Chateando entre Amigos.</p>
+    <p>Este sitio está protegido por derechos de autor y se rige por nuestros términos y condiciones.</p>
+</footer>
+
+</body>
+
+</html>
