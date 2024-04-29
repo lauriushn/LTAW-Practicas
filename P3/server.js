@@ -2,6 +2,7 @@
 const socket = require('socket.io');
 const http = require('http');
 const express = require('express');
+const path = require('path'); // Necesitamos el módulo 'path' para trabajar con rutas de archivos
 const colors = require('colors');
 
 const PUERTO = 9090;
@@ -118,6 +119,12 @@ function sendToClient(socket, message) {
     socket.emit('message', message);
 }
 
+//-- Manejar errores 404: Página no encontrada
+app.use((req, res, next) => {
+    res.status(404).sendFile(path.join(__dirname, 'error.html'));
+});
+
 //-- Lanzar el servidor HTTP
-server.listen(PUERTO);
-console.log("Escuchando en puerto: " + PUERTO);
+server.listen(PUERTO, () => {
+    console.log("Escuchando en puerto: " + PUERTO);
+});
