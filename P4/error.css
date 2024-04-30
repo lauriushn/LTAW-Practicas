@@ -1,0 +1,15 @@
+/* Así definimos el comportamiento de caja para todos los elementos */
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(228, 228, 228);
+}
+h1 {
+    font-size: 80 px;
+    text-align: center;
+}
+img {
+    width: 100%;
+    height: auto;
+}
