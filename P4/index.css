@@ -1,0 +1,74 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: white
+}
+
+/* Estilo para el título */
+h1 {
+  border: 2px solid #000;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: rgb(188, 156, 197);
+}
+
+h2 {
+  text-align: center;
+}
+
+/* Estilo para el contenedor de las columnas */
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+/* Estilo para cada columna */
+.column {
+  width: 48%; /* Reducido ligeramente el ancho para dejar espacio para el margen */
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Estilo para los mensajes del servidor */
+#serverMessages {
+  border: 1px solid #000;
+  padding: 10px;
+  margin-bottom: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 5px;
+}
+
+/* Estilo para el botón */
+button {
+  padding: 5px 10px;
+  background-color: #993fbd;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Estilo para el botón al pasar el ratón sobre él */
+button:hover {
+  background-color: #993fbd;
+}
+
+/* Agregar estilo para el margen entre las columnas */
+.column + .column {
+  margin-left: 20px; /* Ajusta el valor según sea necesario */
+}
+
+#derecha {
+  background-color: rgb(227, 180, 241);
+}
+
+#izquierda {
+  background-color: rgb(240, 224, 245);
+}
+
+#serverMessages {
+  background-color: white;
+}
