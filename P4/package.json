@@ -1,13 +1,30 @@
 {
-    "name": "app-chat",
-    "description": "Estas en la aplicacion de chat en vio de Laurius",
+    "name": "chat-app",
+    "description": "Estas es mi primera aplicación de escritorio en Electron",
     "version": "0.1.0",
     "main": "main.js",
-    "scripts": {
-        "start": "electron ."
+    "author": {
+        "name": "Laura"
     },
-    "dependencies": {
-        "electron": "^30.0.1",
-        "ip": "^2.0.1"
+    "homepage": "",
+    "license": "LGPL",
+    "scripts": {
+        "start": "electron .",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder",
+        "postinstall": "electron-builder install-app-deps"
+    },
+    "build": {
+        "appId": "chat-app-1-id",
+        "linux": {
+            "target": [
+                "AppImage"
+            ],
+            "category": "Utility"
+        }
+    },
+    "devDependencies": {
+        "electron": "^18.0.1",
+        "electron-builder": "^24.13.3"
     }
 }
