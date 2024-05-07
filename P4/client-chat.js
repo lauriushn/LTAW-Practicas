@@ -1,6 +1,7 @@
 //-- Elementos del interfaz
 const display = document.getElementById("display");
 const msg_entry = document.getElementById("msg_entry");
+const serverMessages = document.getElementById("serverMessages"); // Agregado
 
 //-- Pedir al usuario su apodo al cargar la página
 const nickname = prompt("Por favor, introduce tu apodo:");
@@ -28,20 +29,20 @@ msg_entry.addEventListener('input', () => {
     }
 });
 
+//-- Función para mostrar los mensajes del servidor del resto de usuarios
 socket.on("message", (msg) => {
     display.innerHTML += '<p style="color:black">' + msg + '</p>';
 });
 
+//-- Función para mostrar los mensajes del servidor en la columna de la derecha
+socket.on("serverMessage", (msg) => {
+    serverMessages.innerHTML += '<p style="color:green">' + msg + '</p>';
+});
+
 //-- Al apretar el botón se envía un mensaje al servidor
-msg_entry.onchange = () => {
-    if (msg_entry.value) {
-        socket.send(msg_entry.value);
-        //-- Resetear el estado de escribir al enviar el mensaje
-        typing = false;
-        socket.emit('stop typing');
-    }
-    //-- Borrar el mensaje actual
-    msg_entry.value = "";
+function sendMessage() {
+    const message = "Mensaje de Prueba enviado a todos los clientes"; // Mensaje que se enviará a todos los clientes
+    socket.send(message);
 }
 
 //-- Escuchar el evento de "NICKNAME está escribiendo..."
@@ -59,7 +60,6 @@ socket.on('stop typing', (nickname) => {
         }
     }
 });
-
 
 const userList = document.getElementById("user-list");
 
@@ -96,4 +96,3 @@ msg_entry.onchange = () => {
     //-- Borrar el mensaje actual
     msg_entry.value = "";
 }
-

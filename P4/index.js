@@ -20,3 +20,18 @@ chromeVersion.textContent = process.versions.chrome;
 //- IP
 const ipAddress = document.getElementById('chat-ip');
 ipAddress.textContent = ipServer;
+
+
+//-- Evento de recepción de mensajes
+socket.on("message", (msg) => {
+    console.log("Mensaje Recibido!: ".blue + msg);
+    const nickname = users[socket.id] || 'Anónimo'; // Obtener el apodo del usuario o establecerlo como "Anónimo" si no tiene apodo
+    
+    if (msg.startsWith('/')) {
+        handleCommand(msg, socket, nickname);
+    } else {
+        //-- Si no es un comando especial, reenviarlo a todos los clientes conectados
+        io.emit("message", `<strong>${nickname}:</strong> ${msg}`); // Enviar el mensaje con el apodo del usuario
+        io.emit("serverMessage", msg); // Enviar el mensaje a la interfaz de servidor
+    }
+});
