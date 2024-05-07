@@ -11,11 +11,18 @@ const nodeVersion = document.getElementById('nodeVersion');
 const electronVersion = document.getElementById('electronVersion');
 const chromeVersion = document.getElementById('chromeVersion');
 
+const arquitectura = document.getElementById('arquitectura');
+const plataforma = document.getElementById('plataforma');
+const directorio = document.getElementById('directorio');
 
 //-- Acceso a las API para obtener su info
 nodeVersion.textContent = process.version;
 electronVersion.textContent = process.versions.electron;
 chromeVersion.textContent = process.versions.chrome;
+
+arquitectura.textContent = process.arch;
+plataforma.textContent = process.platform;
+directorio.textContent = process.cwd();
 
 //- IP
 const ipAddress = document.getElementById('chat-ip');
